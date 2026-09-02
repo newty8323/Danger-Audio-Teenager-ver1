@@ -5,6 +5,7 @@
     <EditText android:id="@+id/serverUrl" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:hint="선택: Qwen 서버 주소 (예: http://192.168.x.x:8770/)" android:inputType="textUri" />
     <Button android:id="@+id/chooseButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="미디어 파일 선택" />
     <Button android:id="@+id/startButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="선택한 미디어 분석 시작" android:enabled="false" />
+    <Button android:id="@+id/playbackButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="기기 재생음 실시간 캡처 시작" />
     <Button android:id="@+id/stopButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="중지" android:enabled="false" />
     <TextView android:id="@+id/result" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:textIsSelectable="true" android:text="미디어 파일을 선택하면 4초 단위 분석을 시작할 수 있습니다." android:fontFamily="monospace" />
   </LinearLayout>
