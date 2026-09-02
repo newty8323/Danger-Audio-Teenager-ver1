@@ -5,6 +5,7 @@
 | 자료 | 내용 |
 | --- | --- |
 | [최종 논문](docs/final/Danger-Audio-Teenager-Ver1_최종연구논문_2026-09-02.docx) | 제출용 DOCX 원고 |
+| [상세 연구논문](docs/final/Danger-Audio-Teenager-Ver1_상세연구논문_2026-09-03.docx) | 모델 선택·실험·ONNX·코드 대응 부록을 포함한 17쪽 상세판 |
 | [논문 요약](docs/final/final-paper.md) | GitHub에서 바로 읽는 최종 연구 내용 |
 | [Android 실행 안내](docs/final/android-run.md) | ONNX 기준 앱 빌드·설치 방법 |
 | [APK Release](https://github.com/newty8323/Danger-Audio-Teenager-ver1/releases/tag/v0.1.0) | 대용량 APK 다운로드 |

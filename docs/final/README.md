@@ -3,6 +3,7 @@
 이 폴더는 논문 제출과 시연에 필요한 **최종 결론만** 담는다. 날짜별 로그·여러 후보 모델의 세부 비교는 [`research-process`](https://github.com/newty8323/Danger-Audio-Teenager-ver1/tree/research-process) 브랜치로 분리했다.
 
 - [최종 논문 DOCX](Danger-Audio-Teenager-Ver1_최종연구논문_2026-09-02.docx)
+- [상세 연구논문 DOCX](Danger-Audio-Teenager-Ver1_상세연구논문_2026-09-03.docx) — 데이터·모델 선택·ASR 오류·Android ONNX·코드 연결 부록 포함
 - [GitHub용 논문 요약](final-paper.md)
 - [Android ONNX 실행 안내](android-run.md)
 
