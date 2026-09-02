@@ -2,6 +2,20 @@
 
 이 브랜치는 최종 결과만 보여 주는 `final-results`와 달리, **어떤 문제가 발견되었고 어떤 근거로 다음 설계를 선택했는지**를 기록한다. 원음·개인정보·대형 모델 가중치는 올리지 않는다.
 
+## 상세 연구 발전판
+
+[`Danger-Audio-Teenager-Ver1_연구발전_상세기록_2026-09-03.docx`](Danger-Audio-Teenager-Ver1_연구발전_상세기록_2026-09-03.docx)는 초기 세 층 구상부터 다음 중간 구조와 최종 Android ONNX 기준선까지를 하나의 인과 흐름으로 설명한다.
+
+- 작은 CNN 기준선과 source_id 분할 수정
+- BEATs·CED-mini·증류 게이트 비교 및 1층 CNN의 앱 경로 기각
+- Moonshine→KoELECTRA 초기 언어 구조와 실제 ASR 오류 재학습
+- DeepFilterNet·Silero VAD·Whisper LID를 사용한 발화·한국어 게이트 버전
+- Demucs 보컬 분리와 Whisper Base를 사용한 정확도 우선 Ver1
+- Q5/Q6·Demucs 양자화 후보의 품질 회귀와 선택적 양자화 결정
+- Qwen 사건 서버, ONNX 변환 실패·수정, 8초/30초 Whisper 실기기 비교
+
+논문대회 제출용으로 압축한 최종 정리본은 `final-results` 브랜치에 두고, 이전 구조와 기각 실험을 포함한 이 문서는 이 브랜치에서 관리한다.
+
 ## 핵심 연구 흐름
 
 | 단계 | 관찰·실험 | 핵심 결과 | 다음 결정 |
