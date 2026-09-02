@@ -1,0 +1,8 @@
+# Model architecture (spec §5). Mirrors src/models/harm_model.py:ModelConfig.
+# backbone "conv" is the self-contained baseline; "beats"/"panns" need weights.
+backbone: conv
+backbone_out_dim: 256
+attn_dim: 128
+classifier_hidden: 512
+dropout: 0.3
+proj_dim: 256

@@ -1,0 +1,108 @@
+# Semantic prototype bank for the language branch (multilingual, KO + EN). VERSIONED.
+#
+# GOAL: classify *all* harmful/threatening speech in general, NOT match keywords.
+# These are SEMANTIC ANCHORS — a multilingual sentence encoder (multilingual-e5)
+# embeds them; an input is classified by cosine similarity to the nearest anchors.
+# Generalization comes from the embedding space: novel/implicit phrasings ("두고 봐,
+# 후회하게 만들어줄게") that share NO words with any anchor still land near the
+# threat cluster. Add diverse phrasings (explicit + implicit + both languages), not
+# more synonyms. The `safe` bank is load-bearing: it catches idioms/homographs
+# ("이 영화 죽인다 최고야") that a keyword filter false-flags.
+version: v0.1-e5-proto
+
+categories:
+  threat:      # violence / intimidation, explicit AND implicit
+    - 너 죽여버린다 진짜
+    - 너 오늘 내 손에 죽었어
+    - 가만 안 둘 거야 각오해
+    - 두고 봐, 반드시 후회하게 만들어줄게
+    - 네가 한 짓 똑똑히 갚아주마
+    - 네 가족이 무사할 것 같아?
+    - 감히 나를 건드리면 어떻게 되는지 보여주지
+    - 조심하는 게 좋을 거야, 무슨 일이 생길지 몰라
+    - 칼 들고 너희 집으로 찾아갈 거야
+    - 반드시 복수하겠다
+    - 네 팔다리를 성한 데 없이 만들어주마
+    - 다시는 두 발로 못 걷게 해줄게
+    - 넌 내일 아침을 못 볼 줄 알아
+    - keep this up and you won't make it home
+    - I'll make your life a living hell
+    - I will kill you tonight
+    - you're going to regret this, I promise
+    - you'll pay for what you did
+    - watch your back, something might happen to you
+    - I know where you live and I'm coming for you
+    - if you do that again I'll make you suffer
+  sexual:      # sexual solicitation / explicit content
+    - 나랑 성관계 하고 싶어
+    - 옷 벗은 사진 보내줘
+    - 몸매가 좋다 만지고 싶어
+    - 야한 영상 같이 보자
+    - 지금 옷 벗어봐
+    - send me your nudes right now
+    - I want your body so badly
+    - let's have sex tonight
+    - take off your clothes for me
+  gambling:    # betting / casino / high-stakes wagering
+    - 이번 판은 올인이다
+    - 카지노에서 잭팟 터졌어
+    - 판돈 전부 걸었어
+    - 오늘 베팅 크게 질렀다
+    - 슬롯머신에 돈 다 넣었어
+    - I hit the jackpot at the casino
+    - let's bet everything on this hand
+    - go all in, double down now
+    - I put my whole paycheck on the roulette table
+    - 전 재산을 이 한 판에 걸어버렸다
+    - 크게 한탕 노리고 배팅했어
+    - let's risk it all for a big win
+  drug:        # illegal drug use / dealing / abuse
+    - 필로폰 좀 구해줘
+    - 마약 팔 사람 찾아
+    - 대마초 같이 피우자
+    - 약 빨고 완전 갔다
+    - 코카인 투약하고 왔대
+    - where can I buy some meth
+    - let's smoke weed and get high
+    - he's dealing cocaine on the corner
+    - I overdosed on those pills last night
+  safe:        # everyday / benign — INCLUDING idioms + condemnation/education/recovery.
+    # STANCE, not topic: mentioning a harmful thing to WARN AGAINST or REJECT it is safe.
+    # These anchors keep "마약은 나쁜 거야" / "don't do drugs" near safe, not near solicitation.
+    - 마약은 절대 하면 안 되는 위험한 거야
+    - 필로폰 같은 마약은 몸을 망치니 절대 손대지 마
+    - 대마초도 결국 중독되는 위험한 약물이야
+    - 코카인은 목숨을 앗아가는 마약이야
+    - meth will destroy your life, never touch it
+    - 도박은 인생을 망치니까 절대 하지 마
+    - 폭력은 어떤 이유로도 정당화될 수 없어
+    - 마약을 끊고 새 삶을 살기로 했어
+    - 술 담배 도박 다 끊고 건강해졌어
+    - 학교에서 약물 오남용 예방 교육을 받았다
+    - 도박 중독은 치료가 필요한 병이야
+    - drugs ruin lives, please stay away from them
+    - say no to drugs and get help if you need it
+    - gambling addiction can destroy families
+    - violence is never the answer
+    - he quit drinking and turned his life around
+    - 마약 같은 건 생각조차 하면 안 되는 거야
+    - 마약이나 도박엔 절대 손도 대면 안 돼
+    - you should never even think about doing drugs
+    - 오늘 날씨 정말 좋다 산책이나 갈까
+    - 점심 뭐 먹을지 골라봐
+    - 회의를 3시로 미뤄도 될까요
+    - 커피 한잔 하러 가자
+    - 이 영화 진짜 죽인다 완전 최고야
+    - 그 배우 연기 대박이더라 죽여줬어
+    - 어제 게임에서 이겨서 기분 좋아
+    - 주말에 등산 가기로 했어
+    - 생일 진심으로 축하해
+    - 도와줘서 정말 고마워
+    - the weather is lovely today, let's take a walk
+    - what should we have for lunch
+    - can we move the meeting to 3pm
+    - let's grab a coffee sometime
+    - that movie was killer, absolutely the best
+    - happy birthday, hope it's wonderful
+    - congrats on the new job
+    - thanks so much for your help

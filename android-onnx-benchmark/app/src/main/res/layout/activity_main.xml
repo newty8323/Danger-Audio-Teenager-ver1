@@ -1,0 +1,10 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true">
+  <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="24dp">
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Danger Audio — 실시간 온디바이스 탐지" android:textStyle="bold" android:textSize="22sp" />
+    <TextView android:id="@+id/description" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="마이크 입력을 4초마다 CED-mini → Demucs → 원본 Whisper Base → KoELECTRA로 처리합니다. 위험 시에만 설정한 Qwen 서버로 음성과 텍스트를 전송합니다." />
+    <EditText android:id="@+id/serverUrl" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:hint="선택: Qwen 서버 주소 (예: http://192.168.x.x:8770/)" android:inputType="textUri" />
+    <Button android:id="@+id/startButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="마이크 실시간 탐지 시작" />
+    <Button android:id="@+id/stopButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="중지" android:enabled="false" />
+    <TextView android:id="@+id/result" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:textIsSelectable="true" android:text="시작을 누르면 4초 단위 분석을 시작합니다." android:fontFamily="monospace" />
+  </LinearLayout>
+</ScrollView>

@@ -1,0 +1,28 @@
+seed: 2026
+model_id: openai/whisper-tiny
+language: Korean
+task: transcribe
+manifest: data/manifests/mobile_asr.jsonl
+output_dir: data_dl/mobile_asr/whisper-tiny-ko-multidomain
+resume: auto
+device: auto
+max_seconds: 30.0
+
+domain_ratios:
+  general: 0.50
+  movie: 0.25
+  song: 0.15
+  no_speech: 0.10
+
+train:
+  epochs: 10
+  batch_size: 4
+  grad_accum: 4
+  learning_rate: 1.0e-5
+  weight_decay: 0.01
+  warmup_ratio: 0.05
+  num_workers: 0
+  gradient_checkpointing: true
+  max_grad_norm: 1.0
+  time_guard_hours: 11.0
+

@@ -1,0 +1,4 @@
+{"id":"general-speaker01-0001","audio":"../../data/clips/general-speaker01-0001.wav","text":"오늘 학교에서 과학 실험을 했다","domain":"general","split":"train","source_id":"speaker01-session01","harm_terms":[]}
+{"id":"movie-title01-0001","audio":"../../data/clips/movie-title01-0001.wav","text":"야 지금 당장 여기서 나가","domain":"movie","split":"val","source_id":"movie-title01","harm_terms":[]}
+{"id":"song-title01-0001","audio":"../../data/clips/song-title01-0001.wav","teacher_text":"너의 욕심뿐이야 하지만 널 사랑해","domain":"song","split":"train","source_id":"song-title01","harm_terms":[]}
+{"id":"instrumental-title01-0001","audio":"../../data/clips/instrumental-title01-0001.wav","text":"","domain":"no_speech","split":"test","source_id":"instrumental-title01","harm_terms":[]}

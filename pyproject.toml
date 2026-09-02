@@ -1,0 +1,101 @@
+[project]
+name = "audio-harm-detection"
+version = "0.1.0"
+description = "Audio-based classification of content harmful to minors + risk scoring"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "torch>=2.2",
+    "torchaudio>=2.2",
+    "numpy>=1.26",
+    "hydra-core>=1.3",
+    "omegaconf>=2.3",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.6",
+]
+# Optional: the Streamlit annotator UI (tools/annotator). `uv sync --group annotator`.
+annotator = [
+    "streamlit>=1.30",
+]
+asr = [
+    "openai-whisper>=20250625",
+    # .autorun/asr_cer_eval.py: CER measurement + the on-device ASR candidates
+    "faster-whisper>=1.0",
+    "jiwer>=3.0",
+    "soundfile>=0.12",
+    "sherpa-onnx>=1.10",
+    # .autorun/eval_e2e_text.py: MMS-TTS needs romanized input (its tokenizer has no Hangul)
+    "uroman>=1.3",
+]
+nlp = [
+    "protobuf>=7.35.1",
+    "sentence-transformers>=5.6.0",
+    "sentencepiece>=0.2.1",
+    "transformers>=5.13.1",
+    # .autorun/train_koelectra.py reads its corpus with pandas
+    "pandas>=2.0",
+    # HF dataset parquet (kor_unsmile / zeroth) in the cascade + e2e eval scripts
+    "pyarrow>=17.0",
+]
+kaggle = [
+    "kaggle>=2.2.3",
+    "wandb>=0.28.0",
+]
+# Stage-2 host (src/app/server.py --judge qwen-omni): the 7B audio LLM only fits a 12GB GPU
+# in 4-bit, which needs bitsandbytes + accelerate. Not required by the on-device client.
+server = [
+    "accelerate>=1.0",
+    "bitsandbytes>=0.44",
+    "librosa>=0.10",
+    # Qwen-Omni's processor is multimodal and imports its image half even for audio-only use
+    "pillow>=10.0",
+    "torchvision>=0.18",
+]
+onnx = [
+    "librosa>=0.10",
+    "onnx>=1.16",
+    "onnxruntime>=1.18",
+    "onnxscript>=0.2",
+    "soundfile>=0.12",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+# src layout: installs the packages + top-level CLI modules so `python -m collect.audioset`,
+# `python -m train`, etc. run without a manual PYTHONPATH.
+[tool.setuptools]
+package-dir = { "" = "src" }
+py-modules = ["train", "evaluate", "infer_stream"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "--import-mode=importlib"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+# vendored third-party (MIT, microsoft/unilm) — not our style
+extend-exclude = ["src/models/beats"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "UP", "B"]
+
+[tool.ruff.lint.per-file-ignores]
+# HTML-heavy Streamlit UI: long inline markup lines are fine
+"tools/predict_app.py" = ["E501"]
+# app dashboard: the long lines are the embedded HTML/CSS/JS page, not Python
+"src/app/dashboard.py" = ["E501"]
+# data-heavy training/generation + exploratory eval scripts (banks + compact one-liners)
+"scripts/train_text_head.py" = ["E501", "E702"]
+"scripts/gen_train_corpus.py" = ["E501"]
+"scripts/train_beats_finetune.py" = ["E501"]
+"tools/predict.py" = ["E501"]

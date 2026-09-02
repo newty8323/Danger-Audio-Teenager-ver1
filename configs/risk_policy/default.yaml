@@ -1,0 +1,26 @@
+# Risk policy (spec §8, §1 Task B/C). VERSIONED — changing weights/thresholds is a
+# critical task (CLAUDE.md rule 1). Weights live here, never in code.
+version: v1.0
+
+# Per-harm-class weights w_i (spec §8). Confusable/safe classes are implicitly 0.
+weights:
+  sex_moan: 1.0
+  sex_breathing: 0.9
+  sex_ambient: 0.6
+  vio_gunshot: 1.0
+  vio_scream: 0.9
+  vio_impact: 0.8
+  vio_verbal: 0.6
+  gmb_machine: 0.7
+  gmb_table: 0.7
+
+# Risk levels: safe R<tau_warn | warn [tau_warn, tau_block) | block R>=tau_block
+# (defaults are the FPR-1% operating point, spec §1 Task C).
+tau_warn: 0.4
+tau_block: 0.7
+
+# Streaming (Task C)
+ema_lambda: 0.3                # EMA weight on the newest window's risk
+consecutive_warns_to_block: 3  # 3 warns in a row escalate to block (spec §8)
+stride_default_s: 5.0          # sliding-window stride
+stride_densified_s: 2.5        # densify on warn (spec §8)

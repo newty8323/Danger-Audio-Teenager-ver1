@@ -1,0 +1,16 @@
+# Hard-negative mining config (spec §7). VERSIONED.
+version: v1.0
+
+# Candidate bands over the max harm probability of an unlabeled-pool clip:
+#   false_positive: harm prob >= fp_prob_threshold (confident harm on likely-negative audio)
+#   uncertain:      harm prob in [uncertain_low, uncertain_high)
+fp_prob_threshold: 0.6
+uncertain_low: 0.4
+uncertain_high: 0.6
+
+# Human review budget per iteration (spec §7: top 300-500 only).
+top_k: 500
+
+# Stopping (spec §7): stop after max_iterations, or when FPR@95%recall improves < min.
+max_iterations: 3
+min_fpr_improvement: 0.005

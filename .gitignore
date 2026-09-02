@@ -1,0 +1,118 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.venv/
+build/
+dist/
+.cache/
+.claude/
+
+# Data — never commit raw audio or precomputed features (spec §3 ethics)
+data/clips/**
+!data/clips/.gitkeep
+*.npy
+*.wav
+*.mp3
+*.m4a
+*.opus
+*.flac
+
+# Artifacts (norm stats, thresholds, checkpoints) — versioned outside git.
+# (no .gitkeep exception: the dir always exists via the two tracked artifacts below)
+artifacts/**
+*.ckpt
+*.pt
+
+# Secrets / local
+.env
+*.local
+.claude/settings.local.json
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# AudioSet metadata (large; download locally)
+data/audioset/
+
+# Generated/exploratory manifests (curated manifests are force-added when ready)
+data/manifests/*.jsonl
+# Local Korean progress explainer (not committed by request)
+docs/진행상황-쉬운설명.md
+
+# Model weights (large, downloaded locally)
+weights/
+kaggle.json
+*.key
+wandb/
+data/real_speech/
+
+# versioned trained text head (small MLP on frozen e5)
+!artifacts/text_head.pt
+
+# versioned cascade operating point (fit on val; reproducible with .autorun/cascade_offline.py)
+!artifacts/cascade_thresholds.json
+
+# Kaggle upload staging (clips/weights/ckpt hardlinked; never commit)
+kaggle_upload/
+
+# Kaggle code-bundle staging
+code_upload/
+
+# --- 3060/session working dirs (large; never commit) ---
+data_dl/
+release_artifacts/
+ckpt_*/
+colab/
+*.npz
+.autorun/*.log
+.autorun/*.key
+data/downloads/
+
+# PANNs / downloaded torch weights (large)
+*.pth
+
+# Claude runtime locks / worktrees
+.claude/*.lock
+.claude/worktrees/
+
+# distill experiment logs (local only)
+distill/*.log
+
+# lecture recordings — too large for git (keep local only)
+Danger_audio_video/
+
+# video/recording media — never commit, regardless of location
+*.mov
+*.mp4
+*.mkv
+*.avi
+*.webm
+*.m4v
+*.srt
+
+# presentation decks kept locally only (removed from repo 2026-07-20)
+*.pptx
+
+# lecture script PDFs (production artifacts, kept on the `process` branch)
+docs/*.pdf
+
+# Android Studio / generated ONNX benchmark assets
+android-onnx-benchmark/.gradle/
+android-onnx-benchmark/build/
+android-onnx-benchmark/app/build/
+android-onnx-benchmark/app/src/main/assets/**
+!android-onnx-benchmark/app/src/main/assets/.gitkeep
+android-onnx-benchmark/local.properties
+android-onnx-benchmark/.idea/
+
+# Transfer bundles are generated locally; server source itself is versioned.
+deploy/*.zip
+
+# Local Demucs package installation. Install dependencies rather than committing
+# platform-specific Python binaries and package metadata.
+vendor/

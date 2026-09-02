@@ -1,0 +1,18 @@
+# Violence-only AudioSet map for the Tier-2 #4 top-up (spec §3, IMPROVEMENT_PLAN).
+# Same mids as audioset_labels.yaml (validated 2026-07-11), restricted to vio_* so
+# `build` only pulls violence segments. Download skips clips already on disk.
+version: v1.0-violence-topup
+map:
+  vio_scream:
+    - /m/03qc9zr   # Screaming
+  vio_verbal:
+    - /m/07p6fty   # Shout
+    - /m/07sr1lc   # Yell
+    - /m/07q4ntr   # Bellow
+  vio_gunshot:
+    - /m/032s66    # Gunshot, gunfire
+    - /m/04zjc     # Machine gun
+    - /m/0_1c      # Artillery fire
+  vio_impact:
+    - /m/014zdl    # Explosion
+    - /m/07pjjrj   # Smash, crash

@@ -1,0 +1,18 @@
+{
+ "gate": 0.13346301019191742,
+ "acoustic": 0.6202973127365112,
+ "text": 0.4503055810928345,
+ "meta": {
+  "fit_split": "val",
+  "n_val": 431,
+  "gate_recall_target": 0.98,
+  "acoustic_fpr_target": 0.05,
+  "text_fpr_target": 0.15,
+  "text_negatives": "kor_unsmile valid clean",
+  "n_text_neg": 935,
+  "gate_model": "distill/student_s1.pt (0.32M)",
+  "acoustic_model": "ckpt_ced_mini_vio/best.ckpt int8-dynamic",
+  "text_model": "artifacts/koelectra_small_harm_asraug_slang int8-dynamic + configs/text/harm_lexicon.yaml (hybrid max)",
+  "inference_shape": "batch=1 CPU (int8 dynamic activation scales are per-batch: the same clip shifts up to ~0.05 at batch 8, so the fit must use the deployed shape)"
+ }
+}

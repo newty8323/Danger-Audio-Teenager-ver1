@@ -1,0 +1,31 @@
+# Class taxonomy v2.0-vio — VIOLENCE-ONLY acoustic branch (see process.md 2026-07-18).
+#
+# Rationale (user decision 2026-07-18): the on-device acoustic model is a pure
+# VIOLENCE trigger. Non-violence harm is handled elsewhere in the cascade:
+#   - gambling  -> TEXT branch (betting keywords / UI text; weak acoustic signal).
+#                  gmb clips are kept in the data as PURE NEGATIVES (all-zero target),
+#                  hardening the violence boundary (casino != violence).
+#   - sexual    -> DEFERRED. Tags removed for now. Data collection is blocked by the
+#                  ethics constraint (spec §6.4, no adult-content sourcing). May be
+#                  revisited later if a compliant source appears; recorded here so the
+#                  design intent is not lost. Text/Omni cover it in the meantime.
+#
+# Only the 4 violence classes are output nodes -> the backbone learns the easier
+# "violence vs everything" representation, which is the point of the depth-reduced
+# (lightweight) BEATs experiment. confusable is intentionally EMPTY: every non-violence
+# clip (former gmb + former confusables) becomes an all-zero negative example.
+#
+# v1.0 (configs/data/classes.yaml, 23 classes) is kept UNCHANGED so existing 23-class
+# artifacts (probs_beats.npz etc.) stay interpretable. Changing taxonomy is a critical
+# task (CLAUDE.md rule 1); this is a NEW versioned file, not an edit of v1.0.
+version: v2.0-vio
+
+harm:
+  vio:
+    - vio_scream
+    - vio_impact
+    - vio_gunshot
+    - vio_verbal
+
+# Empty on purpose: non-violence clips are pure negatives, not explicit nodes.
+confusable: []

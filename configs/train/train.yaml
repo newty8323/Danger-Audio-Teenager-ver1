@@ -1,0 +1,25 @@
+# Training config (spec §6, §11). Mirrors src/training/config.py:TrainConfig.
+seed: 42
+batch_size: 32             # SupCon contrastive width = this physical batch
+grad_accum_steps: 2        # widens the BCE gradient (not the SupCon set)
+
+lr_heads: 1.0e-4
+lr_backbone: 1.0e-5
+weight_decay: 0.01
+layer_decay: 0.9
+
+warmup_pct: 0.05           # 5% warmup then cosine
+patience: 10               # early stop on val mAP
+
+amp: true                  # active only on CUDA; fp32 on MPS/CPU
+time_guard_hours: 11.0     # Kaggle 12h session guard
+time_guard_check_steps: 50 # mid-epoch time-guard check cadence (optimizer steps)
+
+device: auto               # auto -> cuda | mps | cpu
+num_workers: 4
+ckpt_dir: artifacts/checkpoints
+
+# Curriculum (spec §6): S1 heads-only (5 ep) -> S2 full + SupCon, unfreeze (45 ep)
+curriculum:
+  - {name: S1-heads, epochs: 5, freeze_backbone: true, use_supcon: false}
+  - {name: S2-full, epochs: 45, freeze_backbone: false, use_supcon: true}

@@ -1,0 +1,36 @@
+# Class taxonomy (spec §2). VERSIONED source of truth — changing this is a
+# critical task (CLAUDE.md rule 1): output-node indices and risk weights depend
+# on the exact order below (harm groups first in sex/vio/gmb order, then
+# confusables). "safe" has no explicit node (all harm probs low).
+version: v1.0
+
+harm:
+  sex:
+    - sex_moan
+    - sex_breathing
+    - sex_ambient
+  vio:
+    - vio_scream
+    - vio_impact
+    - vio_gunshot
+    - vio_verbal
+  gmb:
+    - gmb_machine
+    - gmb_table
+
+# Confusable / hard-negative classes — explicit output nodes, NOT merged into "safe".
+confusable:
+  - exercise_grunt
+  - asmr
+  - groan_neutral
+  - cheer_excite
+  - baby_cry
+  - laugh_scream
+  - chair_scrape
+  - door
+  - clap
+  - sports_combat
+  - firework
+  - balloon_pop
+  - arcade
+  - coin

@@ -1,0 +1,289 @@
+[
+  {
+    "n": 1,
+    "text": "매운 라면 먹고 죽는 줄 알았네",
+    "label": "safe",
+    "lang": "ko",
+    "kind": "tricky"
+  },
+  {
+    "n": 2,
+    "text": "you have no idea what's coming for you",
+    "label": "threat",
+    "lang": "en",
+    "kind": "implicit"
+  },
+  {
+    "n": 3,
+    "text": "이번 한 방이면 인생 역전이야 전부 걸어",
+    "label": "gambling",
+    "lang": "ko",
+    "kind": "implicit"
+  },
+  {
+    "n": 4,
+    "text": "필로폰 어디서 살 수 있는지 알아",
+    "label": "drug",
+    "lang": "ko",
+    "kind": "explicit"
+  },
+  {
+    "n": 5,
+    "text": "I want to sleep with you tonight",
+    "label": "sexual",
+    "lang": "en",
+    "kind": "explicit"
+  },
+  {
+    "n": 6,
+    "text": "야한 동영상 하나 보내줄게 우리끼리 보자",
+    "label": "sexual",
+    "lang": "ko",
+    "kind": "explicit"
+  },
+  {
+    "n": 7,
+    "text": "죽여버리기 전에 꺼져",
+    "label": "threat",
+    "lang": "ko",
+    "kind": "explicit"
+  },
+  {
+    "n": 8,
+    "text": "let's play blackjack for real money",
+    "label": "gambling",
+    "lang": "en",
+    "kind": "explicit"
+  },
+  {
+    "n": 9,
+    "text": "카지노 로얄 그 영화 진짜 명작이야",
+    "label": "safe",
+    "lang": "ko",
+    "kind": "tricky"
+  },
+  {
+    "n": 10,
+    "text": "좋은 물건 새로 들어왔는데 한번 해볼래",
+    "label": "drug",
+    "lang": "ko",
+    "kind": "implicit"
+  },
+  {
+    "n": 11,
+    "text": "I wouldn't walk home alone if I were you",
+    "label": "threat",
+    "lang": "en",
+    "kind": "implicit"
+  },
+  {
+    "n": 12,
+    "text": "곧 아주 크게 후회할 일이 생길 거야",
+    "label": "threat",
+    "lang": "ko",
+    "kind": "implicit"
+  },
+  {
+    "n": 13,
+    "text": "네 뒤를 계속 지켜보고 있을 테니까",
+    "label": "threat",
+    "lang": "ko",
+    "kind": "implicit"
+  },
+  {
+    "n": 14,
+    "text": "몸매가 진짜 예술이라 참을 수가 없네",
+    "label": "sexual",
+    "lang": "ko",
+    "kind": "implicit"
+  },
+  {
+    "n": 15,
+    "text": "오늘 느낌 진짜 좋아 크게 한번 지른다",
+    "label": "gambling",
+    "lang": "ko",
+    "kind": "implicit"
+  },
+  {
+    "n": 16,
+    "text": "send me a nude photo right now",
+    "label": "sexual",
+    "lang": "en",
+    "kind": "explicit"
+  },
+  {
+    "n": 17,
+    "text": "시험 붙어서 잭팟 터진 기분이야",
+    "label": "safe",
+    "lang": "ko",
+    "kind": "tricky"
+  },
+  {
+    "n": 18,
+    "text": "주말에 자전거 타러 한강 갈까",
+    "label": "safe",
+    "lang": "ko",
+    "kind": "plain"
+  },
+  {
+    "n": 19,
+    "text": "could you take a look at my code",
+    "label": "safe",
+    "lang": "en",
+    "kind": "plain"
+  },
+  {
+    "n": 20,
+    "text": "가만 안 둔다 반드시 손봐주마",
+    "label": "threat",
+    "lang": "ko",
+    "kind": "explicit"
+  },
+  {
+    "n": 21,
+    "text": "이 노래 진짜 미쳤다 완전 죽인다",
+    "label": "safe",
+    "lang": "ko",
+    "kind": "tricky"
+  },
+  {
+    "n": 22,
+    "text": "새로 나온 카페 커피 맛있더라",
+    "label": "safe",
+    "lang": "ko",
+    "kind": "plain"
+  },
+  {
+    "n": 23,
+    "text": "너를 죽도록 사랑해 정말",
+    "label": "safe",
+    "lang": "ko",
+    "kind": "tricky"
+  },
+  {
+    "n": 24,
+    "text": "포커 판돈 더 올려 콜",
+    "label": "gambling",
+    "lang": "ko",
+    "kind": "explicit"
+  },
+  {
+    "n": 25,
+    "text": "가슴 만지게 해줘 지금",
+    "label": "sexual",
+    "lang": "ko",
+    "kind": "explicit"
+  },
+  {
+    "n": 26,
+    "text": "인생 올인해서 시험공부만 했어",
+    "label": "safe",
+    "lang": "ko",
+    "kind": "tricky"
+  },
+  {
+    "n": 27,
+    "text": "he finally got clean after years of addiction",
+    "label": "safe",
+    "lang": "en",
+    "kind": "stance"
+  },
+  {
+    "n": 28,
+    "text": "let's go hiking this weekend",
+    "label": "safe",
+    "lang": "en",
+    "kind": "plain"
+  },
+  {
+    "n": 29,
+    "text": "슬롯머신에 이번 달 월급 다 넣었어",
+    "label": "gambling",
+    "lang": "ko",
+    "kind": "explicit"
+  },
+  {
+    "n": 30,
+    "text": "let's do a line of meth",
+    "label": "drug",
+    "lang": "en",
+    "kind": "explicit"
+  },
+  {
+    "n": 31,
+    "text": "카지노 가서 오늘 돈 좀 걸어보자",
+    "label": "gambling",
+    "lang": "ko",
+    "kind": "explicit"
+  },
+  {
+    "n": 32,
+    "text": "happy anniversary you two",
+    "label": "safe",
+    "lang": "en",
+    "kind": "plain"
+  },
+  {
+    "n": 33,
+    "text": "그거 한 대 빨면 세상이 완전히 달라 보여",
+    "label": "drug",
+    "lang": "ko",
+    "kind": "implicit"
+  },
+  {
+    "n": 34,
+    "text": "대마 좀 말아서 같이 피우자",
+    "label": "drug",
+    "lang": "ko",
+    "kind": "explicit"
+  },
+  {
+    "n": 35,
+    "text": "put it all on red, spin the wheel",
+    "label": "gambling",
+    "lang": "en",
+    "kind": "explicit"
+  },
+  {
+    "n": 36,
+    "text": "오늘 오후에 팀 회의 잡아도 될까요",
+    "label": "safe",
+    "lang": "ko",
+    "kind": "plain"
+  },
+  {
+    "n": 37,
+    "text": "너 오늘 여기서 못 나간다",
+    "label": "threat",
+    "lang": "ko",
+    "kind": "explicit"
+  },
+  {
+    "n": 38,
+    "text": "이 일이 이렇게 곱게 끝날 거라 생각하지 마",
+    "label": "threat",
+    "lang": "ko",
+    "kind": "implicit"
+  },
+  {
+    "n": 39,
+    "text": "where can I score some cocaine tonight",
+    "label": "drug",
+    "lang": "en",
+    "kind": "explicit"
+  },
+  {
+    "n": 40,
+    "text": "학교에서 약물 오남용 예방 수업을 들었어",
+    "label": "safe",
+    "lang": "ko",
+    "kind": "stance"
+  },
+  {
+    "n": 41,
+    "text": "오늘 밤 우리 둘만 특별하게 보내고 싶어",
+    "label": "sexual",
+    "lang": "ko",
+    "kind": "implicit"
+  }
+]

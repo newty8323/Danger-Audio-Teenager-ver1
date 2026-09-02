@@ -1,0 +1,89 @@
+{"text": "네가 무슨 짓을 했는지 곧 똑똑히 알게 될 거야", "lang": "ko", "label": "threat", "kind": "implicit"}
+{"text": "밤길 혼자 다니지 않는 게 좋을 거다", "lang": "ko", "label": "threat", "kind": "implicit"}
+{"text": "내가 어떤 사람인지 아직 잘 모르나 본데", "lang": "ko", "label": "threat", "kind": "implicit"}
+{"text": "이 일이 이렇게 곱게 끝날 거라 생각하지 마", "lang": "ko", "label": "threat", "kind": "implicit"}
+{"text": "네 뒤를 계속 지켜보고 있을 테니까", "lang": "ko", "label": "threat", "kind": "implicit"}
+{"text": "그 입 안 다물면 어떻게 되는지 알지", "lang": "ko", "label": "threat", "kind": "implicit"}
+{"text": "너희 가족이 무사하길 바라면 잘 생각해", "lang": "ko", "label": "threat", "kind": "implicit"}
+{"text": "곧 아주 크게 후회할 일이 생길 거야", "lang": "ko", "label": "threat", "kind": "implicit"}
+{"text": "you'd better watch yourself from now on", "lang": "en", "label": "threat", "kind": "implicit"}
+{"text": "accidents happen to people who talk too much", "lang": "en", "label": "threat", "kind": "implicit"}
+{"text": "I wouldn't walk home alone if I were you", "lang": "en", "label": "threat", "kind": "implicit"}
+{"text": "you have no idea what's coming for you", "lang": "en", "label": "threat", "kind": "implicit"}
+{"text": "it'd be a shame if something happened to your shop", "lang": "en", "label": "threat", "kind": "implicit"}
+{"text": "너 오늘 여기서 못 나간다", "lang": "ko", "label": "threat", "kind": "explicit"}
+{"text": "칼 들고 네 집으로 찾아간다", "lang": "ko", "label": "threat", "kind": "explicit"}
+{"text": "죽여버리기 전에 꺼져", "lang": "ko", "label": "threat", "kind": "explicit"}
+{"text": "가만 안 둔다 반드시 손봐주마", "lang": "ko", "label": "threat", "kind": "explicit"}
+{"text": "I'm going to break every bone in your body", "lang": "en", "label": "threat", "kind": "explicit"}
+{"text": "I'll hunt you down and end you", "lang": "en", "label": "threat", "kind": "explicit"}
+{"text": "야한 동영상 하나 보내줄게 우리끼리 보자", "lang": "ko", "label": "sexual", "kind": "explicit"}
+{"text": "가슴 만지게 해줘 지금", "lang": "ko", "label": "sexual", "kind": "explicit"}
+{"text": "send me a nude photo right now", "lang": "en", "label": "sexual", "kind": "explicit"}
+{"text": "I want to sleep with you tonight", "lang": "en", "label": "sexual", "kind": "explicit"}
+{"text": "오늘 밤 우리 둘만 특별하게 보내고 싶어", "lang": "ko", "label": "sexual", "kind": "implicit"}
+{"text": "몸매가 진짜 예술이라 참을 수가 없네", "lang": "ko", "label": "sexual", "kind": "implicit"}
+{"text": "why don't you come over and slip out of that dress", "lang": "en", "label": "sexual", "kind": "implicit"}
+{"text": "카지노 가서 오늘 돈 좀 걸어보자", "lang": "ko", "label": "gambling", "kind": "explicit"}
+{"text": "슬롯머신에 이번 달 월급 다 넣었어", "lang": "ko", "label": "gambling", "kind": "explicit"}
+{"text": "포커 판돈 더 올려 콜", "lang": "ko", "label": "gambling", "kind": "explicit"}
+{"text": "let's play blackjack for real money", "lang": "en", "label": "gambling", "kind": "explicit"}
+{"text": "put it all on red, spin the wheel", "lang": "en", "label": "gambling", "kind": "explicit"}
+{"text": "이번 한 방이면 인생 역전이야 전부 걸어", "lang": "ko", "label": "gambling", "kind": "implicit"}
+{"text": "오늘 느낌 진짜 좋아 크게 한번 지른다", "lang": "ko", "label": "gambling", "kind": "implicit"}
+{"text": "double or nothing, I'm feeling lucky tonight", "lang": "en", "label": "gambling", "kind": "implicit"}
+{"text": "필로폰 어디서 살 수 있는지 알아", "lang": "ko", "label": "drug", "kind": "explicit"}
+{"text": "대마 좀 말아서 같이 피우자", "lang": "ko", "label": "drug", "kind": "explicit"}
+{"text": "where can I score some cocaine tonight", "lang": "en", "label": "drug", "kind": "explicit"}
+{"text": "let's do a line of meth", "lang": "en", "label": "drug", "kind": "explicit"}
+{"text": "그거 한 대 빨면 세상이 완전히 달라 보여", "lang": "ko", "label": "drug", "kind": "implicit"}
+{"text": "좋은 물건 새로 들어왔는데 한번 해볼래", "lang": "ko", "label": "drug", "kind": "implicit"}
+{"text": "I've got the good stuff if you want a hit", "lang": "en", "label": "drug", "kind": "implicit"}
+{"text": "오늘 오후에 팀 회의 잡아도 될까요", "lang": "ko", "label": "safe", "kind": "plain"}
+{"text": "저녁으로 김치찌개 어때", "lang": "ko", "label": "safe", "kind": "plain"}
+{"text": "주말에 자전거 타러 한강 갈까", "lang": "ko", "label": "safe", "kind": "plain"}
+{"text": "이 버그 어디서 나는지 같이 봐줄래", "lang": "ko", "label": "safe", "kind": "plain"}
+{"text": "엄마 생신 선물 뭐가 좋을까", "lang": "ko", "label": "safe", "kind": "plain"}
+{"text": "내일 아침 일찍 출발하자", "lang": "ko", "label": "safe", "kind": "plain"}
+{"text": "그 책 다 읽으면 나도 빌려줘", "lang": "ko", "label": "safe", "kind": "plain"}
+{"text": "새로 나온 카페 커피 맛있더라", "lang": "ko", "label": "safe", "kind": "plain"}
+{"text": "우산 챙겨 오늘 비 온대", "lang": "ko", "label": "safe", "kind": "plain"}
+{"text": "발표 자료 거의 다 완성했어", "lang": "ko", "label": "safe", "kind": "plain"}
+{"text": "can we reschedule our call to Thursday", "lang": "en", "label": "safe", "kind": "plain"}
+{"text": "the pasta at that place was amazing", "lang": "en", "label": "safe", "kind": "plain"}
+{"text": "let's go hiking this weekend", "lang": "en", "label": "safe", "kind": "plain"}
+{"text": "could you take a look at my code", "lang": "en", "label": "safe", "kind": "plain"}
+{"text": "I'll pick up the kids after school", "lang": "en", "label": "safe", "kind": "plain"}
+{"text": "the flight got delayed by two hours", "lang": "en", "label": "safe", "kind": "plain"}
+{"text": "happy anniversary you two", "lang": "en", "label": "safe", "kind": "plain"}
+{"text": "remember to water the plants", "lang": "en", "label": "safe", "kind": "plain"}
+{"text": "good luck on your exam tomorrow", "lang": "en", "label": "safe", "kind": "plain"}
+{"text": "the new update fixed the crash", "lang": "en", "label": "safe", "kind": "plain"}
+{"text": "이 노래 진짜 미쳤다 완전 죽인다", "lang": "ko", "label": "safe", "kind": "tricky"}
+{"text": "그 배우 이번 영화에서 연기 죽여줬어", "lang": "ko", "label": "safe", "kind": "tricky"}
+{"text": "인생 올인해서 시험공부만 했어", "lang": "ko", "label": "safe", "kind": "tricky"}
+{"text": "약속 시간에 늦지 않게 서둘러", "lang": "ko", "label": "safe", "kind": "tricky"}
+{"text": "너를 죽도록 사랑해 정말", "lang": "ko", "label": "safe", "kind": "tricky"}
+{"text": "시험 붙어서 잭팟 터진 기분이야", "lang": "ko", "label": "safe", "kind": "tricky"}
+{"text": "카지노 로얄 그 영화 진짜 명작이야", "lang": "ko", "label": "safe", "kind": "tricky"}
+{"text": "오늘 경기 손에 땀을 쥐게 하더라", "lang": "ko", "label": "safe", "kind": "tricky"}
+{"text": "숙제 다 끝내서 이제 좀 살겠다", "lang": "ko", "label": "safe", "kind": "tricky"}
+{"text": "매운 라면 먹고 죽는 줄 알았네", "lang": "ko", "label": "safe", "kind": "tricky"}
+{"text": "she absolutely killed that presentation", "lang": "en", "label": "safe", "kind": "tricky"}
+{"text": "I'd kill for a long vacation right now", "lang": "en", "label": "safe", "kind": "tricky"}
+{"text": "that guitar solo was dope, so sick", "lang": "en", "label": "safe", "kind": "tricky"}
+{"text": "we hit the jackpot with this new hire", "lang": "en", "label": "safe", "kind": "tricky"}
+{"text": "Casino Royale is my favorite Bond film", "lang": "en", "label": "safe", "kind": "tricky"}
+{"text": "I'm dead tired after that long shift", "lang": "en", "label": "safe", "kind": "tricky"}
+{"text": "this workout is gonna be the death of me", "lang": "en", "label": "safe", "kind": "tricky"}
+{"text": "he's all in on the startup idea", "lang": "en", "label": "safe", "kind": "tricky"}
+{"text": "필로폰은 몸을 망치는 나쁜 마약이야", "lang": "ko", "label": "safe", "kind": "stance"}
+{"text": "헤로인은 절대 손대면 안 되는 거야", "lang": "ko", "label": "safe", "kind": "stance"}
+{"text": "도박은 결국 패가망신하는 길이야", "lang": "ko", "label": "safe", "kind": "stance"}
+{"text": "학교에서 약물 오남용 예방 수업을 들었어", "lang": "ko", "label": "safe", "kind": "stance"}
+{"text": "친구가 마약 끊고 재활에 성공했어", "lang": "ko", "label": "safe", "kind": "stance"}
+{"text": "폭력으로는 아무것도 해결되지 않아", "lang": "ko", "label": "safe", "kind": "stance"}
+{"text": "cocaine is dangerous and you should never try it", "lang": "en", "label": "safe", "kind": "stance"}
+{"text": "please don't gamble, it ruined my uncle's life", "lang": "en", "label": "safe", "kind": "stance"}
+{"text": "he finally got clean after years of addiction", "lang": "en", "label": "safe", "kind": "stance"}
+{"text": "our campaign teaches teens to say no to drugs", "lang": "en", "label": "safe", "kind": "stance"}

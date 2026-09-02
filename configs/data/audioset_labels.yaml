@@ -1,0 +1,61 @@
+# AudioSet mid -> our taxonomy mapping (spec §3). VERSIONED.
+#
+# Every mid below was validated against the real AudioSet ontology.json on
+# 2026-07-11 (name shown in the comment == ontology[name]). Re-check after edits:
+#   PYTHONPATH=src python -m collect.audioset validate \
+#       --label-map configs/data/audioset_labels.yaml --ontology data/audioset/ontology.json
+#
+# Only classes sourced from AudioSet appear here. sex_* and gmb_* come from other
+# sources (spec §3) and are intentionally absent. Confusable classes with no clean
+# AudioSet counterpart (chair_scrape, sports_combat, arcade, asmr) are also absent.
+version: v1.0-violence
+
+map:
+  # --- harm: violence ---
+  vio_scream:
+    - /m/03qc9zr   # Screaming
+  vio_verbal:
+    - /m/07p6fty   # Shout
+    - /m/07sr1lc   # Yell
+    - /m/07q4ntr   # Bellow
+  vio_gunshot:
+    - /m/032s66    # Gunshot, gunfire
+    - /m/04zjc     # Machine gun
+    - /m/0_1c      # Artillery fire
+  vio_impact:
+    - /m/014zdl    # Explosion
+    - /m/07pjjrj   # Smash, crash
+    # NOTE: "Thump, thud" (/m/07qnq_y) intentionally excluded — it's a soft/benign
+    # everyday impact and would dilute this HARM node (semantic review 2026-07-11).
+
+  # --- confusables (hard negatives) ---
+  clap:
+    - /m/0l15bq    # Clapping
+    - /m/028ght    # Applause
+  cheer_excite:
+    - /m/053hz1    # Cheering
+  baby_cry:
+    - /t/dd00002   # Baby cry, infant cry
+    # NOTE: "Crying, sobbing" (/m/0463cq4) excluded — broader adult-crying node,
+    # off-class for baby_cry (semantic review 2026-07-11).
+  laugh_scream:
+    - /m/01j3sz    # Laughter
+    - /m/07sq110   # Belly laugh
+  door:
+    - /m/02dgv     # Door
+    - /m/02y_763   # Sliding door
+    - /m/07r4wb8   # Knock
+    - /m/07rjzl8   # Slam
+    # NOTE: "Doorbell" (/m/03wwcy) excluded — electronic chime, off-class vs door
+    # impacts (semantic review 2026-07-11).
+  firework:
+    - /m/0g6b5     # Fireworks
+    - /g/122z_qxw  # Firecracker
+  balloon_pop:
+    - /m/07qsvvw   # Burst, pop
+  coin:
+    - /m/0242l     # Coin (dropping)
+  exercise_grunt:
+    - /m/07r4k75   # Grunt
+  groan_neutral:
+    - /m/07s2xch   # Groan

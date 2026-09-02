@@ -1,0 +1,184 @@
+# Multilingual text-harm lexicon (KO + EN). VERSIONED.
+# Substring match (case-insensitive) on an ASR transcript -> category risk. A
+# transparent v1: explicit terms + common idioms, both languages in one list
+# (substring match is language-agnostic). Prefer multi-word phrases over bare
+# words to avoid false positives. Semantic/LLM classifier = upgrade path.
+# Weights = per-term severity in [0,1]; category `weight` scales the aggregate.
+version: v0.3-ko-en-slang
+
+categories:
+  abuse:             # explicit insults/profanity; avoid ambiguous bare "새끼"
+    weight: 1.0
+    terms:
+      - {t: "이 새끼야", w: 0.95}
+      - {t: "저 새끼야", w: 0.95}
+      - {t: "개새끼", w: 1.0}
+      - {t: "씹새끼", w: 1.0}
+      - {t: "씨발", w: 0.95}
+      - {t: "시발", w: 0.85}       # common ASR spelling of 씨발
+      - {t: "병신아", w: 0.9}
+      - {t: "개자식", w: 0.9}
+      - {t: "좆같", w: 0.95}
+      - {t: "꺼져", w: 0.75}
+
+  threat:            # -> violence / vio_verbal
+    weight: 1.0
+    terms:
+      # Korean
+      - {t: "죽인다", w: 1.0}
+      - {t: "죽여버", w: 1.0}
+      - {t: "죽여", w: 0.9}
+      - {t: "제삿날", w: 0.9}
+      - {t: "없애버", w: 0.9}
+      - {t: "뒤진다", w: 0.8}
+      - {t: "담가버", w: 0.8}
+      - {t: "묻어버", w: 0.8}
+      - {t: "가만 안 둬", w: 0.7}
+      - {t: "가만두지 않", w: 0.7}
+      - {t: "각오해", w: 0.6}
+      - {t: "반죽음", w: 0.8}
+      - {t: "칼로", w: 0.7}
+      # English (phrases > bare words)
+      - {t: "kill you", w: 1.0}
+      - {t: "i'll kill", w: 1.0}
+      - {t: "gonna kill", w: 1.0}
+      - {t: "you're dead", w: 0.9}
+      - {t: "you are dead", w: 0.9}
+      - {t: "dead man", w: 0.8}
+      - {t: "murder you", w: 1.0}
+      - {t: "hunt you down", w: 0.9}
+      - {t: "make you pay", w: 0.7}
+      - {t: "beat you up", w: 0.7}
+      - {t: "wipe you out", w: 0.8}
+      - {t: "shoot you", w: 0.9}
+      - {t: "i'll destroy you", w: 0.8}
+
+  gambling:          # -> gmb
+    weight: 0.7
+    terms:
+      # Korean
+      - {t: "풀하우스", w: 0.9}
+      - {t: "잭팟", w: 0.9}
+      - {t: "올인", w: 0.8}
+      - {t: "몰빵", w: 0.8}
+      - {t: "홀덤", w: 0.8}
+      - {t: "슬롯", w: 0.7}
+      - {t: "판돈", w: 0.8}
+      - {t: "카지노", w: 0.8}
+      - {t: "룰렛", w: 0.7}
+      - {t: "스트레이트 플러시", w: 0.9}
+      - {t: "환전", w: 0.5}
+      # Korean online-gambling slang (은어). Added 2026-07-30 after measuring that the
+      # classifier scores these near zero even when the ASR transcribes them correctly
+      # (슬롯 0.12, 총판 fired only by luck). Ambiguous short words are PHRASES on purpose:
+      # bare "사다리"/"마틴"/"시드" are ordinary Korean and would false-fire.
+      - {t: "먹튀", w: 0.9}
+      - {t: "목키", w: 0.9}   # observed ASR corruption of 먹튀; not a Korean word
+      - {t: "총판", w: 0.9}
+      - {t: "홀짝", w: 0.9}
+      # NOTE the category weight (0.7) multiplies these, so a single term needs w >= ~0.83
+      # to clear the fitted text threshold (~0.58) on its own.
+      - {t: "토토", w: 0.9}
+      - {t: "존버", w: 0.6}
+      - {t: "사다리 한판", w: 0.9}
+      - {t: "사다리 한 판", w: 0.9}
+      - {t: "사다리 게임", w: 0.9}
+      # "사다리 타" was dropped: "사다리 타고 올라가서" is an actual ladder (caught by
+      # tests/cascade/test_hybrid_text.py). "사다리 타기" alone stays out for the same reason.
+      - {t: "슬롯 돌리", w: 0.9}
+      - {t: "마틴 타", w: 0.8}
+      - {t: "시드 두 배", w: 0.7}
+      - {t: "시드 녹", w: 0.8}
+      - {t: "환전 빠른", w: 0.8}
+      # English
+      - {t: "full house", w: 0.9}
+      - {t: "jackpot", w: 0.9}
+      - {t: "all in", w: 0.7}
+      - {t: "all-in", w: 0.8}
+      - {t: "royal flush", w: 0.9}
+      - {t: "straight flush", w: 0.9}
+      - {t: "casino", w: 0.8}
+      - {t: "roulette", w: 0.8}
+      - {t: "blackjack", w: 0.8}
+      - {t: "texas hold", w: 0.8}
+      - {t: "slot machine", w: 0.8}
+      - {t: "place your bet", w: 0.8}
+      - {t: "double down", w: 0.6}
+      - {t: "high roller", w: 0.7}
+
+  sexual:            # -> sex_* (text-based; audio adult corpus is ethics-gated, text moderation is not)
+    weight: 1.0
+    terms:
+      # Korean (explicit / harassment)
+      - {t: "성관계", w: 0.8}
+      - {t: "야한 거", w: 0.7}
+      - {t: "벗어봐", w: 0.9}
+      - {t: "몸매가", w: 0.5}
+      - {t: "만지고 싶", w: 0.9}
+      - {t: "자위", w: 0.8}
+      - {t: "야동", w: 0.8}
+      # Korean online sexual-exploitation slang (은어), added 2026-07-30. "썰"/"조건" alone
+      # are ordinary words (story / condition) so they only count inside a phrase.
+      - {t: "일탈계", w: 0.9}
+      - {t: "야짤", w: 0.9}
+      # Observed Moonshine corruption of 야짤 (2026-07-30). Listed exactly rather than
+      # fuzzy-matched: fuzzy on 2 syllables hit "야빨" in 4/300 real sentences.
+      - {t: "예짤", w: 0.85}
+      - {t: "능욕", w: 0.9}
+      - {t: "조건 만남", w: 0.9}
+      - {t: "조건만남", w: 0.9}
+      - {t: "스폰 구하", w: 0.8}
+      - {t: "스폰서 구하", w: 0.8}
+      # English (explicit / harassment)
+      - {t: "have sex", w: 0.8}
+      - {t: "send nudes", w: 0.9}
+      - {t: "take off your", w: 0.8}
+      - {t: "touch you", w: 0.7}
+      - {t: "want your body", w: 0.8}
+      - {t: "sexy body", w: 0.6}
+      - {t: "make love", w: 0.6}
+
+  drug:              # -> substance abuse (text-only harm category)
+    weight: 0.9
+    terms:
+      # Korean
+      - {t: "마약", w: 0.9}
+      - {t: "필로폰", w: 1.0}
+      - {t: "히로뽕", w: 1.0}
+      - {t: "대마초", w: 0.9}
+      - {t: "대마", w: 0.7}
+      - {t: "코카인", w: 1.0}
+      - {t: "헤로인", w: 1.0}
+      - {t: "엑스터시", w: 0.9}
+      - {t: "펜타닐", w: 1.0}
+      - {t: "투약", w: 0.7}
+      - {t: "약쟁이", w: 0.7}
+      - {t: "뽕 맞", w: 0.9}
+      - {t: "약 빨", w: 0.6}
+      # Korean drug slang (은어), added 2026-07-30. "떨"/"아이스"/"허브"/"고기"/"총" are
+      # everyday words — only phrases that imply dealing/using are listed. "고기 사러" is
+      # deliberately NOT here: it is indistinguishable from buying meat even for a human.
+      - {t: "물뽕", w: 1.0}
+      - {t: "작대기", w: 0.8}
+      - {t: "떨 한번", w: 0.9}
+      - {t: "떨 구하", w: 0.9}
+      - {t: "떨 있", w: 0.7}
+      - {t: "떨 팔", w: 0.9}
+      - {t: "아이스 구하", w: 0.9}
+      - {t: "아이스 할", w: 0.8}
+      - {t: "허브 구하", w: 0.8}
+      - {t: "던지기로 받", w: 0.8}
+      # English
+      - {t: "cocaine", w: 1.0}
+      - {t: "heroin", w: 1.0}
+      - {t: "meth", w: 0.9}
+      - {t: "methamphetamine", w: 1.0}
+      - {t: "fentanyl", w: 1.0}
+      - {t: "ecstasy", w: 0.8}
+      - {t: "marijuana", w: 0.8}
+      - {t: "smoke weed", w: 0.7}
+      - {t: "get high", w: 0.6}
+      - {t: "shoot up", w: 0.7}
+      - {t: "overdose", w: 0.8}
+      - {t: "deal drugs", w: 0.9}
+      - {t: "buy drugs", w: 0.8}

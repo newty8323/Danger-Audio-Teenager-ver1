@@ -1,0 +1,470 @@
+{"text": "let's grab a coffee seriously, could you review my pull request", "lang": "en", "label": "safe", "kind": "plain"}
+{"text": "우리 집에 아무도 없는데 올래", "lang": "ko", "label": "sexual", "kind": "implicit"}
+{"text": "오늘 밤 도박장 가자 진짜 이번 판 올인이다", "lang": "ko", "label": "gambling", "kind": "explicit"}
+{"text": "he finally got clean after years", "lang": "en", "label": "safe", "kind": "stance"}
+{"text": "you have no idea what's coming seriously, I hope your family stays safe, think about it", "lang": "en", "label": "threat", "kind": "implicit"}
+{"text": "you won't see tomorrow hey, I'm going to break your legs", "lang": "en", "label": "threat", "kind": "explicit"}
+{"text": "take off your clothes for me", "lang": "en", "label": "sexual", "kind": "explicit"}
+{"text": "where can I buy some meth and let's do a line right now", "lang": "en", "label": "drug", "kind": "explicit"}
+{"text": "score me some cocaine seriously, let's do a line right now", "lang": "en", "label": "drug", "kind": "explicit"}
+{"text": "I need to shoot up, got a needle hey, where can I buy some meth", "lang": "en", "label": "drug", "kind": "explicit"}
+{"text": "묻어버릴 줄 알아 진짜 칼 들고 찾아갈 거야", "lang": "ko", "label": "threat", "kind": "explicit"}
+{"text": "묻어버릴 줄 알아", "lang": "ko", "label": "threat", "kind": "explicit"}
+{"text": "he finally got clean after years seriously, cocaine is dangerous, stay away", "lang": "en", "label": "safe", "kind": "stance"}
+{"text": "우리 집에 아무도 없는데 올래 진짜 이리 와서 좀 더 가까이 안겨봐", "lang": "ko", "label": "sexual", "kind": "implicit"}
+{"text": "this workout is gonna be the death of me seriously, I'd kill for a vacation right now", "lang": "en", "label": "safe", "kind": "tricky"}
+{"text": "go big or go home, bet everything and we can win it all back in one hand", "lang": "en", "label": "gambling", "kind": "implicit"}
+{"text": "I need to shoot up, got a needle", "lang": "en", "label": "drug", "kind": "explicit"}
+{"text": "오늘 밤 도박장 가자 진짜 슬롯에 월급 다 넣었어", "lang": "ko", "label": "gambling", "kind": "explicit"}
+{"text": "우리 은밀하게 즐기자", "lang": "ko", "label": "sexual", "kind": "explicit"}
+{"text": "the deadline is killing me hey, Casino Royale is my favorite film", "lang": "en", "label": "safe", "kind": "tricky"}
+{"text": "double down on blackjack", "lang": "en", "label": "gambling", "kind": "explicit"}
+{"text": "I got the good stuff if you want a hit seriously, got something that'll make you fly", "lang": "en", "label": "drug", "kind": "implicit"}
+{"text": "that joke slayed, so funny seriously, this workout is gonna be the death of me", "lang": "en", "label": "safe", "kind": "tricky"}
+{"text": "what should we have for lunch", "lang": "en", "label": "safe", "kind": "plain"}
+{"text": "잭팟 노리고 다 걸었어", "lang": "ko", "label": "gambling", "kind": "explicit"}
+{"text": "I can't stop staring at your body seriously, you and me, somewhere private, tonight", "lang": "en", "label": "sexual", "kind": "implicit"}
+{"text": "please feed the cat", "lang": "en", "label": "safe", "kind": "plain"}
+{"text": "필로폰은 몸 망치는 나쁜 마약이야 야 폭력으로는 아무것도 해결 안 돼", "lang": "ko", "label": "safe", "kind": "stance"}
+{"text": "야한 사진 보내줘 야 가슴 만지게 해줘", "lang": "ko", "label": "sexual", "kind": "explicit"}
+{"text": "새 카페 커피 맛있더라 그리고 시험 잘 보고 와", "lang": "ko", "label": "safe", "kind": "plain"}
+{"text": "마약 팔 사람 아는데 연결해줄까", "lang": "ko", "label": "drug", "kind": "explicit"}
+{"text": "drugs ruin lives, never try them", "lang": "en", "label": "safe", "kind": "stance"}
+{"text": "한 번만 맛보면 계속 찾게 돼 야 좋은 물건 새로 들어왔는데 해볼래", "lang": "ko", "label": "drug", "kind": "implicit"}
+{"text": "우리 집에 아무도 없는데 올래 그리고 불 끄고 조용히 둘이서만", "lang": "ko", "label": "sexual", "kind": "implicit"}
+{"text": "엑스터시 오늘 밤에 하자 그리고 주사기 챙겨서 한 대 맞자", "lang": "ko", "label": "drug", "kind": "explicit"}
+{"text": "나랑 지금 자자 야 네 몸 구석구석 보고 싶어", "lang": "ko", "label": "sexual", "kind": "explicit"}
+{"text": "I'm going all in this hand hey, spin the roulette, max bet", "lang": "en", "label": "gambling", "kind": "explicit"}
+{"text": "nobody's home, come over and I can't stop staring at your body", "lang": "en", "label": "sexual", "kind": "implicit"}
+{"text": "we can win it all back in one hand", "lang": "en", "label": "gambling", "kind": "implicit"}
+{"text": "score me some cocaine hey, he's dealing pills on the corner", "lang": "en", "label": "drug", "kind": "explicit"}
+{"text": "질 것 같으면 두 배로 걸어서 만회해", "lang": "ko", "label": "gambling", "kind": "implicit"}
+{"text": "가슴 만지게 해줘 그리고 속옷만 입고 찍어서 보내", "lang": "ko", "label": "sexual", "kind": "explicit"}
+{"text": "판돈 두 배로 올려 콜", "lang": "ko", "label": "gambling", "kind": "explicit"}
+{"text": "필로폰 좀 구해줘 진짜 엑스터시 오늘 밤에 하자", "lang": "ko", "label": "drug", "kind": "explicit"}
+{"text": "go big or go home, bet everything hey, just one more round to break even", "lang": "en", "label": "gambling", "kind": "implicit"}
+{"text": "let's smoke weed tonight and I need to shoot up, got a needle", "lang": "en", "label": "drug", "kind": "explicit"}
+{"text": "가슴 만지게 해줘 진짜 성관계 하고 싶어 지금", "lang": "ko", "label": "sexual", "kind": "explicit"}
+{"text": "double or nothing, come on", "lang": "en", "label": "gambling", "kind": "implicit"}
+{"text": "got something that'll make you fly", "lang": "en", "label": "drug", "kind": "implicit"}
+{"text": "meth will destroy your body, avoid it", "lang": "en", "label": "safe", "kind": "stance"}
+{"text": "손봐줄 테니 기다려", "lang": "ko", "label": "threat", "kind": "explicit"}
+{"text": "I want to touch your body", "lang": "en", "label": "sexual", "kind": "explicit"}
+{"text": "그 경기 손에 땀을 쥐게 하더라", "lang": "ko", "label": "safe", "kind": "tricky"}
+{"text": "죽고 싶지 않으면 꺼져 그리고 반쯤 죽여놓을 거야", "lang": "ko", "label": "threat", "kind": "explicit"}
+{"text": "좋은 물건 새로 들어왔는데 해볼래 진짜 특별한 걸로 준비했으니까 와", "lang": "ko", "label": "drug", "kind": "implicit"}
+{"text": "you have no idea what's coming", "lang": "en", "label": "threat", "kind": "implicit"}
+{"text": "put it all on red and let's hit the casino and bet big", "lang": "en", "label": "gambling", "kind": "explicit"}
+{"text": "score me some cocaine", "lang": "en", "label": "drug", "kind": "explicit"}
+{"text": "this'll keep you up all night, try it", "lang": "en", "label": "drug", "kind": "implicit"}
+{"text": "커피 한잔 하러 가자 야 주말에 등산 갈래", "lang": "ko", "label": "safe", "kind": "plain"}
+{"text": "네 입술에서 눈을 못 떼겠어 그리고 이리 와서 좀 더 가까이 안겨봐", "lang": "ko", "label": "sexual", "kind": "implicit"}
+{"text": "기분 뜨는 거 하나 있는데 같이 할래 야 그거 한 대 빨면 세상이 달라 보여", "lang": "ko", "label": "drug", "kind": "implicit"}
+{"text": "I can't stop staring at your body", "lang": "en", "label": "sexual", "kind": "implicit"}
+{"text": "I can't stop staring at your body and let's turn off the lights and get close", "lang": "en", "label": "sexual", "kind": "implicit"}
+{"text": "we can win it all back in one hand hey, I'm feeling lucky, let's risk it all", "lang": "en", "label": "gambling", "kind": "implicit"}
+{"text": "슬롯에 월급 다 넣었어", "lang": "ko", "label": "gambling", "kind": "explicit"}
+{"text": "내가 어떤 사람인지 아직 모르나 보네", "lang": "ko", "label": "threat", "kind": "implicit"}
+{"text": "오늘이 네 마지막 날이야 진짜 너희 집 어딘지 다 알아 곧 간다", "lang": "ko", "label": "threat", "kind": "explicit"}
+{"text": "네 입술에서 눈을 못 떼겠어 진짜 우리 집에 아무도 없는데 올래", "lang": "ko", "label": "sexual", "kind": "implicit"}
+{"text": "let's smoke weed tonight and score me some cocaine", "lang": "en", "label": "drug", "kind": "explicit"}
+{"text": "one big bet and we're set for life seriously, just one more round to break even", "lang": "en", "label": "gambling", "kind": "implicit"}
+{"text": "I'll lend you the book when I'm done", "lang": "en", "label": "safe", "kind": "plain"}
+{"text": "엄마 생신 선물 골라야 하는데 그리고 커피 한잔 하러 가자", "lang": "ko", "label": "safe", "kind": "plain"}
+{"text": "I swear I'll make you bleed and I know where you live and I'm coming", "lang": "en", "label": "threat", "kind": "explicit"}
+{"text": "네 다리를 분질러 놓겠어", "lang": "ko", "label": "threat", "kind": "explicit"}
+{"text": "기분 뜨는 거 하나 있는데 같이 할래 야 특별한 걸로 준비했으니까 와", "lang": "ko", "label": "drug", "kind": "implicit"}
+{"text": "코카인 어디서 사 야 엑스터시 오늘 밤에 하자", "lang": "ko", "label": "drug", "kind": "explicit"}
+{"text": "너 죽도록 보고 싶었어", "lang": "ko", "label": "safe", "kind": "tricky"}
+{"text": "stay quiet or I'll bury you and I'm going to break your legs", "lang": "en", "label": "threat", "kind": "explicit"}
+{"text": "it'll take the edge off, just one hit", "lang": "en", "label": "drug", "kind": "implicit"}
+{"text": "I hope your family stays safe, think about it seriously, it'd be a shame if something happened to your shop", "lang": "en", "label": "threat", "kind": "implicit"}
+{"text": "조만간 아주 안 좋은 일이 생길 수도 있어 진짜 세상 참 무서운 곳이야 조심해", "lang": "ko", "label": "threat", "kind": "implicit"}
+{"text": "시험 잘 보고 와", "lang": "ko", "label": "safe", "kind": "plain"}
+{"text": "칼 들고 찾아갈 거야", "lang": "ko", "label": "threat", "kind": "explicit"}
+{"text": "몸매가 예술이라 참기 힘드네 진짜 불 끄고 조용히 둘이서만", "lang": "ko", "label": "sexual", "kind": "implicit"}
+{"text": "I got the good stuff if you want a hit seriously, this'll keep you up all night, try it", "lang": "en", "label": "drug", "kind": "implicit"}
+{"text": "네 몸 구석구석 보고 싶어 그리고 옷 다 벗고 기다려", "lang": "ko", "label": "sexual", "kind": "explicit"}
+{"text": "want to take a walk tonight hey, let's grab a coffee", "lang": "en", "label": "safe", "kind": "plain"}
+{"text": "오늘 느낌 좋다 크게 지른다 야 질 것 같으면 두 배로 걸어서 만회해", "lang": "ko", "label": "gambling", "kind": "implicit"}
+{"text": "이리 와서 좀 더 가까이 안겨봐 야 네 입술에서 눈을 못 떼겠어", "lang": "ko", "label": "sexual", "kind": "implicit"}
+{"text": "double down on blackjack hey, I bet my whole paycheck on it", "lang": "en", "label": "gambling", "kind": "explicit"}
+{"text": "가만 안 둘 테니 각오해 그리고 칼 들고 찾아갈 거야", "lang": "ko", "label": "threat", "kind": "explicit"}
+{"text": "let's do a line right now and I need to shoot up, got a needle", "lang": "en", "label": "drug", "kind": "explicit"}
+{"text": "밤길 조심하는 게 좋을 거야", "lang": "ko", "label": "threat", "kind": "implicit"}
+{"text": "이리 와서 좀 더 가까이 안겨봐", "lang": "ko", "label": "sexual", "kind": "implicit"}
+{"text": "let's have sex tonight seriously, take off your clothes for me", "lang": "en", "label": "sexual", "kind": "explicit"}
+{"text": "네 입술에서 눈을 못 떼겠어 야 불 끄고 조용히 둘이서만", "lang": "ko", "label": "sexual", "kind": "implicit"}
+{"text": "please don't gamble, it destroyed my uncle", "lang": "en", "label": "safe", "kind": "stance"}
+{"text": "you brought this on yourself", "lang": "en", "label": "threat", "kind": "implicit"}
+{"text": "where can I buy some meth and score me some cocaine", "lang": "en", "label": "drug", "kind": "explicit"}
+{"text": "칼 들고 찾아갈 거야 진짜 다시는 못 일어나게 밟아줄게", "lang": "ko", "label": "threat", "kind": "explicit"}
+{"text": "네가 한 짓 그대로 돌려받게 될 거야", "lang": "ko", "label": "threat", "kind": "implicit"}
+{"text": "주사기 챙겨서 한 대 맞자 진짜 대마초 같이 피우자", "lang": "ko", "label": "drug", "kind": "explicit"}
+{"text": "도박 중독은 치료가 필요한 병이야 그리고 친구가 마약 끊고 재활에 성공했대", "lang": "ko", "label": "safe", "kind": "stance"}
+{"text": "let's smoke weed tonight hey, score me some cocaine", "lang": "en", "label": "drug", "kind": "explicit"}
+{"text": "he's all in on the startup hey, I'd kill for a vacation right now", "lang": "en", "label": "safe", "kind": "tricky"}
+{"text": "도박은 인생을 망치니까 하지 마 진짜 뽕 같은 거 할 생각조차 하면 안 돼", "lang": "ko", "label": "safe", "kind": "stance"}
+{"text": "I want to touch your body seriously, come to my place and strip", "lang": "en", "label": "sexual", "kind": "explicit"}
+{"text": "cocaine is dangerous, stay away", "lang": "en", "label": "safe", "kind": "stance"}
+{"text": "take off your clothes for me and I want you naked right now", "lang": "en", "label": "sexual", "kind": "explicit"}
+{"text": "뽕 같은 거 할 생각조차 하면 안 돼 그리고 학교에서 약물 예방 교육 받았어", "lang": "ko", "label": "safe", "kind": "stance"}
+{"text": "그 경기 손에 땀을 쥐게 하더라 그리고 그 배우 연기 죽여주더라", "lang": "ko", "label": "safe", "kind": "tricky"}
+{"text": "우리 은밀하게 즐기자 그리고 성관계 하고 싶어 지금", "lang": "ko", "label": "sexual", "kind": "explicit"}
+{"text": "accidents happen to people who talk and I hope your family stays safe, think about it", "lang": "en", "label": "threat", "kind": "implicit"}
+{"text": "조만간 아주 안 좋은 일이 생길 수도 있어 그리고 네 뒤를 계속 보고 있을 거야", "lang": "ko", "label": "threat", "kind": "implicit"}
+{"text": "본전 생각 말고 끝까지 가보자 그리고 마지막으로 한 번만 더 걸어보자", "lang": "ko", "label": "gambling", "kind": "implicit"}
+{"text": "인생 올인해서 공부만 했어", "lang": "ko", "label": "safe", "kind": "tricky"}
+{"text": "저녁에 같이 산책할래", "lang": "ko", "label": "safe", "kind": "plain"}
+{"text": "야한 사진 보내줘 진짜 가슴 만지게 해줘", "lang": "ko", "label": "sexual", "kind": "explicit"}
+{"text": "drugs ruin lives, never try them hey, he finally got clean after years", "lang": "en", "label": "safe", "kind": "stance"}
+{"text": "세상 참 무서운 곳이야 조심해 그리고 혼자 다니지 않는 게 신상에 좋아", "lang": "ko", "label": "threat", "kind": "implicit"}
+{"text": "성관계 하고 싶어 지금 야 옷 다 벗고 기다려", "lang": "ko", "label": "sexual", "kind": "explicit"}
+{"text": "주사기 챙겨서 한 대 맞자", "lang": "ko", "label": "drug", "kind": "explicit"}
+{"text": "the slides are almost done", "lang": "en", "label": "safe", "kind": "plain"}
+{"text": "the deadline is killing me", "lang": "en", "label": "safe", "kind": "tricky"}
+{"text": "새 카페 커피 맛있더라", "lang": "ko", "label": "safe", "kind": "plain"}
+{"text": "학교에서 약물 예방 교육 받았어", "lang": "ko", "label": "safe", "kind": "stance"}
+{"text": "accidents happen to people who talk", "lang": "en", "label": "threat", "kind": "implicit"}
+{"text": "조만간 아주 안 좋은 일이 생길 수도 있어 야 혼자 다니지 않는 게 신상에 좋아", "lang": "ko", "label": "threat", "kind": "implicit"}
+{"text": "그 입 함부로 놀리면 어떻게 되는지 알지", "lang": "ko", "label": "threat", "kind": "implicit"}
+{"text": "도박 중독은 치료가 필요한 병이야", "lang": "ko", "label": "safe", "kind": "stance"}
+{"text": "세상 참 무서운 곳이야 조심해", "lang": "ko", "label": "threat", "kind": "implicit"}
+{"text": "keep talking and you won't walk again and I'll hunt you down and end you", "lang": "en", "label": "threat", "kind": "explicit"}
+{"text": "시험 붙어서 잭팟 터진 기분이야 야 숙제 끝내서 이제 좀 살 것 같다", "lang": "ko", "label": "safe", "kind": "tricky"}
+{"text": "you'll regret ever crossing me seriously, you'd better watch your back from now on", "lang": "en", "label": "threat", "kind": "implicit"}
+{"text": "네 입술에서 눈을 못 떼겠어 진짜 불 끄고 조용히 둘이서만", "lang": "ko", "label": "sexual", "kind": "implicit"}
+{"text": "let's smoke weed tonight", "lang": "en", "label": "drug", "kind": "explicit"}
+{"text": "엄마 생신 선물 골라야 하는데 진짜 주말에 등산 갈래", "lang": "ko", "label": "safe", "kind": "plain"}
+{"text": "마약은 절대 하면 안 되는 거야 야 폭력으로는 아무것도 해결 안 돼", "lang": "ko", "label": "safe", "kind": "stance"}
+{"text": "오늘 밤 둘만 특별한 시간 보내자", "lang": "ko", "label": "sexual", "kind": "implicit"}
+{"text": "회의를 3시로 미뤄도 될까요 야 주말에 등산 갈래", "lang": "ko", "label": "safe", "kind": "plain"}
+{"text": "네 입술에서 눈을 못 떼겠어", "lang": "ko", "label": "sexual", "kind": "implicit"}
+{"text": "let's grab a coffee", "lang": "en", "label": "safe", "kind": "plain"}
+{"text": "I'm feeling lucky, let's risk it all hey, one big bet and we're set for life", "lang": "en", "label": "gambling", "kind": "implicit"}
+{"text": "I know where you live and I'm coming", "lang": "en", "label": "threat", "kind": "explicit"}
+{"text": "fresh batch just came in, wanna try hey, got something that'll make you fly", "lang": "en", "label": "drug", "kind": "implicit"}
+{"text": "그 배우 연기 죽여주더라 그리고 인생 올인해서 공부만 했어", "lang": "ko", "label": "safe", "kind": "tricky"}
+{"text": "도박 중독은 치료가 필요한 병이야 야 뽕 같은 거 할 생각조차 하면 안 돼", "lang": "ko", "label": "safe", "kind": "stance"}
+{"text": "택배 오면 문 앞에 놔달라고 해", "lang": "ko", "label": "safe", "kind": "plain"}
+{"text": "I'm feeling lucky, let's risk it all seriously, just one more round to break even", "lang": "en", "label": "gambling", "kind": "implicit"}
+{"text": "stay quiet or I'll bury you", "lang": "en", "label": "threat", "kind": "explicit"}
+{"text": "가족들 무사하길 바라면 잘 생각해", "lang": "ko", "label": "threat", "kind": "implicit"}
+{"text": "park on level two hey, could you review my pull request", "lang": "en", "label": "safe", "kind": "plain"}
+{"text": "네 몸 구석구석 보고 싶어", "lang": "ko", "label": "sexual", "kind": "explicit"}
+{"text": "인생 올인해서 공부만 했어 그리고 숙제 끝내서 이제 좀 살 것 같다", "lang": "ko", "label": "safe", "kind": "tricky"}
+{"text": "곧 크게 후회할 일이 생길 거야", "lang": "ko", "label": "threat", "kind": "implicit"}
+{"text": "너 오늘 내 손에 죽는다", "lang": "ko", "label": "threat", "kind": "explicit"}
+{"text": "이거 하면 밤새 안 자도 돼 야 기분 뜨는 거 하나 있는데 같이 할래", "lang": "ko", "label": "drug", "kind": "implicit"}
+{"text": "너 죽도록 보고 싶었어 야 카지노 로얄 그 영화 명작이지", "lang": "ko", "label": "safe", "kind": "tricky"}
+{"text": "혼자 다니지 않는 게 신상에 좋아", "lang": "ko", "label": "threat", "kind": "implicit"}
+{"text": "시험 붙어서 잭팟 터진 기분이야", "lang": "ko", "label": "safe", "kind": "tricky"}
+{"text": "nobody's home, come over", "lang": "en", "label": "sexual", "kind": "implicit"}
+{"text": "I bet my whole paycheck on it", "lang": "en", "label": "gambling", "kind": "explicit"}
+{"text": "슬롯에 월급 다 넣었어 진짜 룰렛에 전부 걸어", "lang": "ko", "label": "gambling", "kind": "explicit"}
+{"text": "let's hit the casino and bet big hey, double down on blackjack", "lang": "en", "label": "gambling", "kind": "explicit"}
+{"text": "let's have sex tonight", "lang": "en", "label": "sexual", "kind": "explicit"}
+{"text": "come to my place and strip", "lang": "en", "label": "sexual", "kind": "explicit"}
+{"text": "meth will destroy your body, avoid it seriously, drugs ruin lives, never try them", "lang": "en", "label": "safe", "kind": "stance"}
+{"text": "I want to touch your body and send me a nude photo now", "lang": "en", "label": "sexual", "kind": "explicit"}
+{"text": "violence is never the answer", "lang": "en", "label": "safe", "kind": "stance"}
+{"text": "you're a dead man if you show up and I'll smash your face in", "lang": "en", "label": "threat", "kind": "explicit"}
+{"text": "친구가 마약 끊고 재활에 성공했대 야 도박은 인생을 망치니까 하지 마", "lang": "ko", "label": "safe", "kind": "stance"}
+{"text": "our campaign teaches kids to say no to drugs hey, meth will destroy your body, avoid it", "lang": "en", "label": "safe", "kind": "stance"}
+{"text": "숙제 끝내서 이제 좀 살 것 같다", "lang": "ko", "label": "safe", "kind": "tricky"}
+{"text": "이 코드 리뷰 좀 부탁해", "lang": "ko", "label": "safe", "kind": "plain"}
+{"text": "why don't you slip into something less comfortable", "lang": "en", "label": "sexual", "kind": "implicit"}
+{"text": "오늘 느낌 좋다 크게 지른다 그리고 떨어진 만큼 한 번에 복구하면 돼", "lang": "ko", "label": "gambling", "kind": "implicit"}
+{"text": "마약은 절대 하면 안 되는 거야 그리고 친구가 마약 끊고 재활에 성공했대", "lang": "ko", "label": "safe", "kind": "stance"}
+{"text": "네 뒤를 계속 보고 있을 거야 야 밤길 조심하는 게 좋을 거야", "lang": "ko", "label": "threat", "kind": "implicit"}
+{"text": "you brought this on yourself seriously, I wouldn't go home alone if I were you", "lang": "en", "label": "threat", "kind": "implicit"}
+{"text": "she absolutely killed that presentation", "lang": "en", "label": "safe", "kind": "tricky"}
+{"text": "good luck on your exam", "lang": "en", "label": "safe", "kind": "plain"}
+{"text": "one big bet and we're set for life", "lang": "en", "label": "gambling", "kind": "implicit"}
+{"text": "let's hit the casino and bet big", "lang": "en", "label": "gambling", "kind": "explicit"}
+{"text": "fresh batch just came in, wanna try hey, one taste and you'll be hooked", "lang": "en", "label": "drug", "kind": "implicit"}
+{"text": "약 한 판 하자", "lang": "ko", "label": "drug", "kind": "explicit"}
+{"text": "도박은 인생을 망치니까 하지 마", "lang": "ko", "label": "safe", "kind": "stance"}
+{"text": "히로뽕 좀 구할 수 있어", "lang": "ko", "label": "drug", "kind": "explicit"}
+{"text": "떨어진 만큼 한 번에 복구하면 돼", "lang": "ko", "label": "gambling", "kind": "implicit"}
+{"text": "got something that'll make you fly and one taste and you'll be hooked", "lang": "en", "label": "drug", "kind": "implicit"}
+{"text": "this workout is gonna be the death of me and I'm dead tired after that shift", "lang": "en", "label": "safe", "kind": "tricky"}
+{"text": "속옷만 입고 찍어서 보내 진짜 야한 사진 보내줘", "lang": "ko", "label": "sexual", "kind": "explicit"}
+{"text": "필로폰 좀 구해줘 진짜 대마초 같이 피우자", "lang": "ko", "label": "drug", "kind": "explicit"}
+{"text": "he's dealing pills on the corner and I need to shoot up, got a needle", "lang": "en", "label": "drug", "kind": "explicit"}
+{"text": "spin the roulette, max bet seriously, I bet my whole paycheck on it", "lang": "en", "label": "gambling", "kind": "explicit"}
+{"text": "다시는 못 일어나게 밟아줄게", "lang": "ko", "label": "threat", "kind": "explicit"}
+{"text": "you'd better watch your back from now on", "lang": "en", "label": "threat", "kind": "implicit"}
+{"text": "패 죽여버리기 전에 사라져", "lang": "ko", "label": "threat", "kind": "explicit"}
+{"text": "I want you naked right now seriously, come to my place and strip", "lang": "en", "label": "sexual", "kind": "explicit"}
+{"text": "가만 안 둘 테니 각오해", "lang": "ko", "label": "threat", "kind": "explicit"}
+{"text": "I'll smash your face in seriously, I will kill you tonight", "lang": "en", "label": "threat", "kind": "explicit"}
+{"text": "이 한 방이면 인생 역전이야 다 걸어 그리고 오늘 느낌 좋다 크게 지른다", "lang": "ko", "label": "gambling", "kind": "implicit"}
+{"text": "I will kill you tonight", "lang": "en", "label": "threat", "kind": "explicit"}
+{"text": "just one more round to break even seriously, one big bet and we're set for life", "lang": "en", "label": "gambling", "kind": "implicit"}
+{"text": "회의를 3시로 미뤄도 될까요 야 오늘 점심 뭐 먹을까", "lang": "ko", "label": "safe", "kind": "plain"}
+{"text": "불 끄고 조용히 둘이서만", "lang": "ko", "label": "sexual", "kind": "implicit"}
+{"text": "몸매가 예술이라 참기 힘드네 진짜 네 입술에서 눈을 못 떼겠어", "lang": "ko", "label": "sexual", "kind": "implicit"}
+{"text": "칼 들고 찾아갈 거야 야 반쯤 죽여놓을 거야", "lang": "ko", "label": "threat", "kind": "explicit"}
+{"text": "this workout is gonna be the death of me", "lang": "en", "label": "safe", "kind": "tricky"}
+{"text": "I want you naked right now and I want to touch your body", "lang": "en", "label": "sexual", "kind": "explicit"}
+{"text": "커피 한잔 하러 가자", "lang": "ko", "label": "safe", "kind": "plain"}
+{"text": "leave the package by the door hey, could you review my pull request", "lang": "en", "label": "safe", "kind": "plain"}
+{"text": "그 배우 연기 죽여주더라", "lang": "ko", "label": "safe", "kind": "tricky"}
+{"text": "let's have sex tonight and send me a nude photo now", "lang": "en", "label": "sexual", "kind": "explicit"}
+{"text": "코카인 어디서 사", "lang": "ko", "label": "drug", "kind": "explicit"}
+{"text": "이거 하면 밤새 안 자도 돼", "lang": "ko", "label": "drug", "kind": "implicit"}
+{"text": "학교에서 약물 예방 교육 받았어 야 친구가 마약 끊고 재활에 성공했대", "lang": "ko", "label": "safe", "kind": "stance"}
+{"text": "학교에서 약물 예방 교육 받았어 그리고 뽕 같은 거 할 생각조차 하면 안 돼", "lang": "ko", "label": "safe", "kind": "stance"}
+{"text": "park on level two", "lang": "en", "label": "safe", "kind": "plain"}
+{"text": "죽고 싶지 않으면 꺼져", "lang": "ko", "label": "threat", "kind": "explicit"}
+{"text": "I hope your family stays safe, think about it", "lang": "en", "label": "threat", "kind": "implicit"}
+{"text": "you'd better watch your back from now on seriously, I hope your family stays safe, think about it", "lang": "en", "label": "threat", "kind": "implicit"}
+{"text": "네 다리를 분질러 놓겠어 진짜 묻어버릴 줄 알아", "lang": "ko", "label": "threat", "kind": "explicit"}
+{"text": "대마초 같이 피우자", "lang": "ko", "label": "drug", "kind": "explicit"}
+{"text": "특별한 걸로 준비했으니까 와 야 좋은 물건 새로 들어왔는데 해볼래", "lang": "ko", "label": "drug", "kind": "implicit"}
+{"text": "그거 한 대 빨면 세상이 달라 보여 야 특별한 걸로 준비했으니까 와", "lang": "ko", "label": "drug", "kind": "implicit"}
+{"text": "this'll keep you up all night, try it hey, got something that'll make you fly", "lang": "en", "label": "drug", "kind": "implicit"}
+{"text": "카지노 가서 크게 걸자 야 판돈 두 배로 올려 콜", "lang": "ko", "label": "gambling", "kind": "explicit"}
+{"text": "that guitar solo was sick and I'd kill for a vacation right now", "lang": "en", "label": "safe", "kind": "tricky"}
+{"text": "I'm going to break your legs hey, stay quiet or I'll bury you", "lang": "en", "label": "threat", "kind": "explicit"}
+{"text": "그 경기 손에 땀을 쥐게 하더라 그리고 시험 붙어서 잭팟 터진 기분이야", "lang": "ko", "label": "safe", "kind": "tricky"}
+{"text": "엑스터시 오늘 밤에 하자 진짜 히로뽕 좀 구할 수 있어", "lang": "ko", "label": "drug", "kind": "explicit"}
+{"text": "he's all in on the startup", "lang": "en", "label": "safe", "kind": "tricky"}
+{"text": "I'm feeling lucky, let's risk it all", "lang": "en", "label": "gambling", "kind": "implicit"}
+{"text": "주차는 지하 2층에 하면 돼", "lang": "ko", "label": "safe", "kind": "plain"}
+{"text": "이 한 방이면 인생 역전이야 다 걸어 그리고 질 것 같으면 두 배로 걸어서 만회해", "lang": "ko", "label": "gambling", "kind": "implicit"}
+{"text": "뽕 같은 거 할 생각조차 하면 안 돼 그리고 친구가 마약 끊고 재활에 성공했대", "lang": "ko", "label": "safe", "kind": "stance"}
+{"text": "where can I buy some meth", "lang": "en", "label": "drug", "kind": "explicit"}
+{"text": "I wouldn't go home alone if I were you", "lang": "en", "label": "threat", "kind": "implicit"}
+{"text": "엑스터시 오늘 밤에 하자", "lang": "ko", "label": "drug", "kind": "explicit"}
+{"text": "violence is never the answer and please don't gamble, it destroyed my uncle", "lang": "en", "label": "safe", "kind": "stance"}
+{"text": "one taste and you'll be hooked", "lang": "en", "label": "drug", "kind": "implicit"}
+{"text": "want to take a walk tonight seriously, can we move the meeting to 3", "lang": "en", "label": "safe", "kind": "plain"}
+{"text": "just one more round to break even seriously, double or nothing, come on", "lang": "en", "label": "gambling", "kind": "implicit"}
+{"text": "I need to shoot up, got a needle hey, score me some cocaine", "lang": "en", "label": "drug", "kind": "explicit"}
+{"text": "you and me, somewhere private, tonight", "lang": "en", "label": "sexual", "kind": "implicit"}
+{"text": "도박은 인생을 망치니까 하지 마 진짜 필로폰은 몸 망치는 나쁜 마약이야", "lang": "ko", "label": "safe", "kind": "stance"}
+{"text": "nobody's home, come over and why don't you slip into something less comfortable", "lang": "en", "label": "sexual", "kind": "implicit"}
+{"text": "엄마 생신 선물 골라야 하는데", "lang": "ko", "label": "safe", "kind": "plain"}
+{"text": "keep talking and you won't walk again", "lang": "en", "label": "threat", "kind": "explicit"}
+{"text": "let's hit the casino and bet big seriously, I'm going all in this hand", "lang": "en", "label": "gambling", "kind": "explicit"}
+{"text": "he's all in on the startup and Casino Royale is my favorite film", "lang": "en", "label": "safe", "kind": "tricky"}
+{"text": "야한 사진 보내줘", "lang": "ko", "label": "sexual", "kind": "explicit"}
+{"text": "leave the package by the door", "lang": "en", "label": "safe", "kind": "plain"}
+{"text": "그 배우 연기 죽여주더라 그리고 그 경기 손에 땀을 쥐게 하더라", "lang": "ko", "label": "safe", "kind": "tricky"}
+{"text": "our campaign teaches kids to say no to drugs and drugs ruin lives, never try them", "lang": "en", "label": "safe", "kind": "stance"}
+{"text": "let's go hiking this weekend and leave the package by the door", "lang": "en", "label": "safe", "kind": "plain"}
+{"text": "violence is never the answer and meth will destroy your body, avoid it", "lang": "en", "label": "safe", "kind": "stance"}
+{"text": "let's turn off the lights and get close and spend the night and let's not sleep", "lang": "en", "label": "sexual", "kind": "implicit"}
+{"text": "I got the good stuff if you want a hit", "lang": "en", "label": "drug", "kind": "implicit"}
+{"text": "he finally got clean after years hey, our campaign teaches kids to say no to drugs", "lang": "en", "label": "safe", "kind": "stance"}
+{"text": "슬롯에 월급 다 넣었어 야 판돈 두 배로 올려 콜", "lang": "ko", "label": "gambling", "kind": "explicit"}
+{"text": "you and me, somewhere private, tonight and spend the night and let's not sleep", "lang": "en", "label": "sexual", "kind": "implicit"}
+{"text": "몸매가 예술이라 참기 힘드네 그리고 우리 집에 아무도 없는데 올래", "lang": "ko", "label": "sexual", "kind": "implicit"}
+{"text": "마약 팔 사람 아는데 연결해줄까 진짜 대마초 같이 피우자", "lang": "ko", "label": "drug", "kind": "explicit"}
+{"text": "그거 한 대 빨면 세상이 달라 보여 진짜 특별한 걸로 준비했으니까 와", "lang": "ko", "label": "drug", "kind": "implicit"}
+{"text": "let's go hiking this weekend", "lang": "en", "label": "safe", "kind": "plain"}
+{"text": "네가 무슨 짓 했는지 곧 알게 될걸", "lang": "ko", "label": "threat", "kind": "implicit"}
+{"text": "뽕 같은 거 할 생각조차 하면 안 돼 진짜 도박은 인생을 망치니까 하지 마", "lang": "ko", "label": "safe", "kind": "stance"}
+{"text": "기분 뜨는 거 하나 있는데 같이 할래 진짜 그거 한 대 빨면 세상이 달라 보여", "lang": "ko", "label": "drug", "kind": "implicit"}
+{"text": "I bet my whole paycheck on it and double down on blackjack", "lang": "en", "label": "gambling", "kind": "explicit"}
+{"text": "고양이 밥 좀 챙겨줘", "lang": "ko", "label": "safe", "kind": "plain"}
+{"text": "우리 은밀하게 즐기자 야 가슴 만지게 해줘", "lang": "ko", "label": "sexual", "kind": "explicit"}
+{"text": "떨어진 만큼 한 번에 복구하면 돼 야 이 한 방이면 인생 역전이야 다 걸어", "lang": "ko", "label": "gambling", "kind": "implicit"}
+{"text": "회의를 3시로 미뤄도 될까요", "lang": "ko", "label": "safe", "kind": "plain"}
+{"text": "she absolutely killed that presentation hey, the deadline is killing me", "lang": "en", "label": "safe", "kind": "tricky"}
+{"text": "떨어진 만큼 한 번에 복구하면 돼 그리고 본전 생각 말고 끝까지 가보자", "lang": "ko", "label": "gambling", "kind": "implicit"}
+{"text": "double or nothing, come on hey, one big bet and we're set for life", "lang": "en", "label": "gambling", "kind": "implicit"}
+{"text": "I wouldn't go home alone if I were you and you'll regret ever crossing me", "lang": "en", "label": "threat", "kind": "implicit"}
+{"text": "머리통을 부숴버리겠어", "lang": "ko", "label": "threat", "kind": "explicit"}
+{"text": "룰렛에 전부 걸어 진짜 오늘 밤 도박장 가자", "lang": "ko", "label": "gambling", "kind": "explicit"}
+{"text": "조만간 아주 안 좋은 일이 생길 수도 있어 진짜 이대로 끝날 거라 생각하지 마", "lang": "ko", "label": "threat", "kind": "implicit"}
+{"text": "혼자 다니지 않는 게 신상에 좋아 진짜 내가 어떤 사람인지 아직 모르나 보네", "lang": "ko", "label": "threat", "kind": "implicit"}
+{"text": "약속 시간 늦지 않게 서둘러 그리고 이 노래 진짜 죽인다 완전 최고", "lang": "ko", "label": "safe", "kind": "tricky"}
+{"text": "take off your clothes for me and I want to touch your body", "lang": "en", "label": "sexual", "kind": "explicit"}
+{"text": "필로폰 좀 구해줘", "lang": "ko", "label": "drug", "kind": "explicit"}
+{"text": "잭팟 노리고 다 걸었어 진짜 판돈 두 배로 올려 콜", "lang": "ko", "label": "gambling", "kind": "explicit"}
+{"text": "let's do a line right now hey, I need to shoot up, got a needle", "lang": "en", "label": "drug", "kind": "explicit"}
+{"text": "it'd be a shame if something happened to your shop and be careful out there, things happen", "lang": "en", "label": "threat", "kind": "implicit"}
+{"text": "기분 뜨는 거 하나 있는데 같이 할래 진짜 이거 하면 밤새 안 자도 돼", "lang": "ko", "label": "drug", "kind": "implicit"}
+{"text": "좋은 물건 새로 들어왔는데 해볼래", "lang": "ko", "label": "drug", "kind": "implicit"}
+{"text": "카지노 가서 크게 걸자", "lang": "ko", "label": "gambling", "kind": "explicit"}
+{"text": "I will kill you tonight seriously, you won't see tomorrow", "lang": "en", "label": "threat", "kind": "explicit"}
+{"text": "반쯤 죽여놓을 거야", "lang": "ko", "label": "threat", "kind": "explicit"}
+{"text": "오늘 느낌 좋다 크게 지른다 진짜 질 것 같으면 두 배로 걸어서 만회해", "lang": "ko", "label": "gambling", "kind": "implicit"}
+{"text": "포커 판돈 더 올려 그리고 이번 판 올인이다", "lang": "ko", "label": "gambling", "kind": "explicit"}
+{"text": "gambling addiction is a treatable illness seriously, meth will destroy your body, avoid it", "lang": "en", "label": "safe", "kind": "stance"}
+{"text": "좋은 물건 새로 들어왔는데 해볼래 야 그거 한 대 빨면 세상이 달라 보여", "lang": "ko", "label": "drug", "kind": "implicit"}
+{"text": "let's turn off the lights and get close seriously, you and me, somewhere private, tonight", "lang": "en", "label": "sexual", "kind": "implicit"}
+{"text": "cocaine is dangerous, stay away and drugs ruin lives, never try them", "lang": "en", "label": "safe", "kind": "stance"}
+{"text": "let's turn off the lights and get close hey, I can't stop staring at your body", "lang": "en", "label": "sexual", "kind": "implicit"}
+{"text": "포커 판돈 더 올려", "lang": "ko", "label": "gambling", "kind": "explicit"}
+{"text": "오늘 밤 도박장 가자", "lang": "ko", "label": "gambling", "kind": "explicit"}
+{"text": "gambling addiction is a treatable illness", "lang": "en", "label": "safe", "kind": "stance"}
+{"text": "I want you naked right now and send me a nude photo now", "lang": "en", "label": "sexual", "kind": "explicit"}
+{"text": "drugs ruin lives, never try them hey, cocaine is dangerous, stay away", "lang": "en", "label": "safe", "kind": "stance"}
+{"text": "let's hit the casino and bet big hey, put it all on red", "lang": "en", "label": "gambling", "kind": "explicit"}
+{"text": "I can't stop staring at your body and nobody's home, come over", "lang": "en", "label": "sexual", "kind": "implicit"}
+{"text": "she absolutely killed that presentation seriously, I'd kill for a vacation right now", "lang": "en", "label": "safe", "kind": "tricky"}
+{"text": "she absolutely killed that presentation hey, that guitar solo was sick", "lang": "en", "label": "safe", "kind": "tricky"}
+{"text": "I'm dead tired after that shift", "lang": "en", "label": "safe", "kind": "tricky"}
+{"text": "매운 라면 먹고 죽는 줄 알았네", "lang": "ko", "label": "safe", "kind": "tricky"}
+{"text": "let's do a line right now", "lang": "en", "label": "drug", "kind": "explicit"}
+{"text": "성관계 하고 싶어 지금", "lang": "ko", "label": "sexual", "kind": "explicit"}
+{"text": "fresh batch just came in, wanna try", "lang": "en", "label": "drug", "kind": "implicit"}
+{"text": "마약 팔 사람 아는데 연결해줄까 그리고 엑스터시 오늘 밤에 하자", "lang": "ko", "label": "drug", "kind": "explicit"}
+{"text": "I need a gift for my mom's birthday", "lang": "en", "label": "safe", "kind": "plain"}
+{"text": "please don't gamble, it destroyed my uncle and he finally got clean after years", "lang": "en", "label": "safe", "kind": "stance"}
+{"text": "우리 집에 아무도 없는데 올래 그리고 오늘 밤 둘만 특별한 시간 보내자", "lang": "ko", "label": "sexual", "kind": "implicit"}
+{"text": "you brought this on yourself hey, you'll regret ever crossing me", "lang": "en", "label": "threat", "kind": "implicit"}
+{"text": "네가 무슨 짓 했는지 곧 알게 될걸 그리고 그 입 함부로 놀리면 어떻게 되는지 알지", "lang": "ko", "label": "threat", "kind": "implicit"}
+{"text": "이거 하면 밤새 안 자도 돼 그리고 한 번만 맛보면 계속 찾게 돼", "lang": "ko", "label": "drug", "kind": "implicit"}
+{"text": "몸매가 예술이라 참기 힘드네", "lang": "ko", "label": "sexual", "kind": "implicit"}
+{"text": "필로폰 좀 구해줘 진짜 주사기 챙겨서 한 대 맞자", "lang": "ko", "label": "drug", "kind": "explicit"}
+{"text": "슬롯에 월급 다 넣었어 진짜 카지노 가서 크게 걸자", "lang": "ko", "label": "gambling", "kind": "explicit"}
+{"text": "it'd be a shame if something happened to your shop", "lang": "en", "label": "threat", "kind": "implicit"}
+{"text": "한 번만 맛보면 계속 찾게 돼 진짜 이거 하면 밤새 안 자도 돼", "lang": "ko", "label": "drug", "kind": "implicit"}
+{"text": "그거 한 대 빨면 세상이 달라 보여 그리고 이거 하면 밤새 안 자도 돼", "lang": "ko", "label": "drug", "kind": "implicit"}
+{"text": "just one more round to break even", "lang": "en", "label": "gambling", "kind": "implicit"}
+{"text": "accidents happen to people who talk seriously, you brought this on yourself", "lang": "en", "label": "threat", "kind": "implicit"}
+{"text": "이대로 끝날 거라 생각하지 마", "lang": "ko", "label": "threat", "kind": "implicit"}
+{"text": "본전 생각 말고 끝까지 가보자", "lang": "ko", "label": "gambling", "kind": "implicit"}
+{"text": "we hit the jackpot with this new hire and that guitar solo was sick", "lang": "en", "label": "safe", "kind": "tricky"}
+{"text": "본전 생각 말고 끝까지 가보자 진짜 오늘 느낌 좋다 크게 지른다", "lang": "ko", "label": "gambling", "kind": "implicit"}
+{"text": "필로폰 좀 구해줘 그리고 코카인 어디서 사", "lang": "ko", "label": "drug", "kind": "explicit"}
+{"text": "필로폰은 몸 망치는 나쁜 마약이야", "lang": "ko", "label": "safe", "kind": "stance"}
+{"text": "I can't stop staring at your body seriously, spend the night and let's not sleep", "lang": "en", "label": "sexual", "kind": "implicit"}
+{"text": "it'll take the edge off, just one hit seriously, got something that'll make you fly", "lang": "en", "label": "drug", "kind": "implicit"}
+{"text": "오늘이 네 마지막 날이야", "lang": "ko", "label": "threat", "kind": "explicit"}
+{"text": "너희 집 어딘지 다 알아 곧 간다 야 묻어버릴 줄 알아", "lang": "ko", "label": "threat", "kind": "explicit"}
+{"text": "Casino Royale is my favorite film", "lang": "en", "label": "safe", "kind": "tricky"}
+{"text": "마지막으로 한 번만 더 걸어보자", "lang": "ko", "label": "gambling", "kind": "implicit"}
+{"text": "이번 판 올인이다", "lang": "ko", "label": "gambling", "kind": "explicit"}
+{"text": "속옷만 입고 찍어서 보내", "lang": "ko", "label": "sexual", "kind": "explicit"}
+{"text": "네 다리를 분질러 놓겠어 그리고 다시는 못 일어나게 밟아줄게", "lang": "ko", "label": "threat", "kind": "explicit"}
+{"text": "우리 집에 아무도 없는데 올래 야 네 입술에서 눈을 못 떼겠어", "lang": "ko", "label": "sexual", "kind": "implicit"}
+{"text": "한 번만 맛보면 계속 찾게 돼", "lang": "ko", "label": "drug", "kind": "implicit"}
+{"text": "double or nothing, come on and I'm feeling lucky, let's risk it all", "lang": "en", "label": "gambling", "kind": "implicit"}
+{"text": "주말에 등산 갈래", "lang": "ko", "label": "safe", "kind": "plain"}
+{"text": "본전 생각 말고 끝까지 가보자 그리고 질 것 같으면 두 배로 걸어서 만회해", "lang": "ko", "label": "gambling", "kind": "implicit"}
+{"text": "you're a dead man if you show up", "lang": "en", "label": "threat", "kind": "explicit"}
+{"text": "몸매가 예술이라 참기 힘드네 야 오늘 밤 둘만 특별한 시간 보내자", "lang": "ko", "label": "sexual", "kind": "implicit"}
+{"text": "약속 시간 늦지 않게 서둘러", "lang": "ko", "label": "safe", "kind": "tricky"}
+{"text": "could you review my pull request", "lang": "en", "label": "safe", "kind": "plain"}
+{"text": "가슴 만지게 해줘", "lang": "ko", "label": "sexual", "kind": "explicit"}
+{"text": "그거 한 대 빨면 세상이 달라 보여", "lang": "ko", "label": "drug", "kind": "implicit"}
+{"text": "it'll take the edge off, just one hit hey, one taste and you'll be hooked", "lang": "en", "label": "drug", "kind": "implicit"}
+{"text": "let's turn off the lights and get close", "lang": "en", "label": "sexual", "kind": "implicit"}
+{"text": "score me some cocaine and where can I buy some meth", "lang": "en", "label": "drug", "kind": "explicit"}
+{"text": "발표 자료 거의 다 됐어", "lang": "ko", "label": "safe", "kind": "plain"}
+{"text": "조만간 아주 안 좋은 일이 생길 수도 있어 그리고 혼자 다니지 않는 게 신상에 좋아", "lang": "ko", "label": "threat", "kind": "implicit"}
+{"text": "that joke slayed, so funny", "lang": "en", "label": "safe", "kind": "tricky"}
+{"text": "double down on blackjack seriously, I bet my whole paycheck on it", "lang": "en", "label": "gambling", "kind": "explicit"}
+{"text": "이 책 다 읽으면 빌려줄게", "lang": "ko", "label": "safe", "kind": "plain"}
+{"text": "I'll hunt you down and end you and keep talking and you won't walk again", "lang": "en", "label": "threat", "kind": "explicit"}
+{"text": "double or nothing, come on hey, I'm feeling lucky, let's risk it all", "lang": "en", "label": "gambling", "kind": "implicit"}
+{"text": "엑스터시 오늘 밤에 하자 진짜 코카인 어디서 사", "lang": "ko", "label": "drug", "kind": "explicit"}
+{"text": "I want you naked right now seriously, take off your clothes for me", "lang": "en", "label": "sexual", "kind": "explicit"}
+{"text": "score me some cocaine and let's do a line right now", "lang": "en", "label": "drug", "kind": "explicit"}
+{"text": "want to take a walk tonight", "lang": "en", "label": "safe", "kind": "plain"}
+{"text": "one big bet and we're set for life and go big or go home, bet everything", "lang": "en", "label": "gambling", "kind": "implicit"}
+{"text": "some people just disappear, you know", "lang": "en", "label": "threat", "kind": "implicit"}
+{"text": "please don't gamble, it destroyed my uncle and drugs ruin lives, never try them", "lang": "en", "label": "safe", "kind": "stance"}
+{"text": "오늘 밤 둘만 특별한 시간 보내자 야 불 끄고 조용히 둘이서만", "lang": "ko", "label": "sexual", "kind": "implicit"}
+{"text": "뽕 같은 거 할 생각조차 하면 안 돼", "lang": "ko", "label": "safe", "kind": "stance"}
+{"text": "카지노 가서 크게 걸자 진짜 룰렛에 전부 걸어", "lang": "ko", "label": "gambling", "kind": "explicit"}
+{"text": "can we move the meeting to 3", "lang": "en", "label": "safe", "kind": "plain"}
+{"text": "네 입술에서 눈을 못 떼겠어 야 우리 집에 아무도 없는데 올래", "lang": "ko", "label": "sexual", "kind": "implicit"}
+{"text": "그 배우 연기 죽여주더라 그리고 시험 붙어서 잭팟 터진 기분이야", "lang": "ko", "label": "safe", "kind": "tricky"}
+{"text": "I got the good stuff if you want a hit and it'll take the edge off, just one hit", "lang": "en", "label": "drug", "kind": "implicit"}
+{"text": "I got the good stuff if you want a hit hey, this'll keep you up all night, try it", "lang": "en", "label": "drug", "kind": "implicit"}
+{"text": "몸매가 예술이라 참기 힘드네 야 네 입술에서 눈을 못 떼겠어", "lang": "ko", "label": "sexual", "kind": "implicit"}
+{"text": "spin the roulette, max bet", "lang": "en", "label": "gambling", "kind": "explicit"}
+{"text": "포커 판돈 더 올려 진짜 오늘 밤 도박장 가자", "lang": "ko", "label": "gambling", "kind": "explicit"}
+{"text": "네 뒤를 계속 보고 있을 거야", "lang": "ko", "label": "threat", "kind": "implicit"}
+{"text": "옷 다 벗고 기다려 그리고 가슴 만지게 해줘", "lang": "ko", "label": "sexual", "kind": "explicit"}
+{"text": "you're a dead man if you show up hey, stay quiet or I'll bury you", "lang": "en", "label": "threat", "kind": "explicit"}
+{"text": "마약은 절대 하면 안 되는 거야", "lang": "ko", "label": "safe", "kind": "stance"}
+{"text": "I want to touch your body seriously, let's have sex tonight", "lang": "en", "label": "sexual", "kind": "explicit"}
+{"text": "인생 올인해서 공부만 했어 그리고 카지노 로얄 그 영화 명작이지", "lang": "ko", "label": "safe", "kind": "tricky"}
+{"text": "I'm going all in this hand", "lang": "en", "label": "gambling", "kind": "explicit"}
+{"text": "떨어진 만큼 한 번에 복구하면 돼 야 마지막으로 한 번만 더 걸어보자", "lang": "ko", "label": "gambling", "kind": "implicit"}
+{"text": "the slides are almost done hey, bring an umbrella, it'll rain", "lang": "en", "label": "safe", "kind": "plain"}
+{"text": "룰렛에 전부 걸어", "lang": "ko", "label": "gambling", "kind": "explicit"}
+{"text": "be careful out there, things happen", "lang": "en", "label": "threat", "kind": "implicit"}
+{"text": "we hit the jackpot with this new hire", "lang": "en", "label": "safe", "kind": "tricky"}
+{"text": "put it all on red hey, I bet my whole paycheck on it", "lang": "en", "label": "gambling", "kind": "explicit"}
+{"text": "판돈 두 배로 올려 콜 야 룰렛에 전부 걸어", "lang": "ko", "label": "gambling", "kind": "explicit"}
+{"text": "기분 뜨는 거 하나 있는데 같이 할래", "lang": "ko", "label": "drug", "kind": "implicit"}
+{"text": "spend the night and let's not sleep hey, nobody's home, come over", "lang": "en", "label": "sexual", "kind": "implicit"}
+{"text": "기분 뜨는 거 하나 있는데 같이 할래 진짜 좋은 물건 새로 들어왔는데 해볼래", "lang": "ko", "label": "drug", "kind": "implicit"}
+{"text": "why don't you slip into something less comfortable hey, let's turn off the lights and get close", "lang": "en", "label": "sexual", "kind": "implicit"}
+{"text": "나랑 지금 자자", "lang": "ko", "label": "sexual", "kind": "explicit"}
+{"text": "you won't see tomorrow", "lang": "en", "label": "threat", "kind": "explicit"}
+{"text": "that guitar solo was sick", "lang": "en", "label": "safe", "kind": "tricky"}
+{"text": "our campaign teaches kids to say no to drugs", "lang": "en", "label": "safe", "kind": "stance"}
+{"text": "카지노 로얄 그 영화 명작이지", "lang": "ko", "label": "safe", "kind": "tricky"}
+{"text": "속옷만 입고 찍어서 보내 야 야한 사진 보내줘", "lang": "ko", "label": "sexual", "kind": "explicit"}
+{"text": "send me a nude photo now and I want you naked right now", "lang": "en", "label": "sexual", "kind": "explicit"}
+{"text": "내일 비 온다니까 우산 챙겨 진짜 새 카페 커피 맛있더라", "lang": "ko", "label": "safe", "kind": "plain"}
+{"text": "I wouldn't go home alone if I were you hey, it'd be a shame if something happened to your shop", "lang": "en", "label": "threat", "kind": "implicit"}
+{"text": "I'm going to break your legs", "lang": "en", "label": "threat", "kind": "explicit"}
+{"text": "come to my place and strip and let's have sex tonight", "lang": "en", "label": "sexual", "kind": "explicit"}
+{"text": "I'd kill for a vacation right now", "lang": "en", "label": "safe", "kind": "tricky"}
+{"text": "내일 비 온다니까 우산 챙겨", "lang": "ko", "label": "safe", "kind": "plain"}
+{"text": "판돈 두 배로 올려 콜 그리고 포커 판돈 더 올려", "lang": "ko", "label": "gambling", "kind": "explicit"}
+{"text": "친구가 마약 끊고 재활에 성공했대", "lang": "ko", "label": "safe", "kind": "stance"}
+{"text": "double down on blackjack seriously, I'm going all in this hand", "lang": "en", "label": "gambling", "kind": "explicit"}
+{"text": "I'm feeling lucky, let's risk it all seriously, we can win it all back in one hand", "lang": "en", "label": "gambling", "kind": "implicit"}
+{"text": "spend the night and let's not sleep", "lang": "en", "label": "sexual", "kind": "implicit"}
+{"text": "bring an umbrella, it'll rain", "lang": "en", "label": "safe", "kind": "plain"}
+{"text": "I got the good stuff if you want a hit hey, fresh batch just came in, wanna try", "lang": "en", "label": "drug", "kind": "implicit"}
+{"text": "옷 다 벗고 기다려", "lang": "ko", "label": "sexual", "kind": "explicit"}
+{"text": "you and me, somewhere private, tonight hey, why don't you slip into something less comfortable", "lang": "en", "label": "sexual", "kind": "implicit"}
+{"text": "let's do a line right now hey, let's smoke weed tonight", "lang": "en", "label": "drug", "kind": "explicit"}
+{"text": "he's dealing pills on the corner", "lang": "en", "label": "drug", "kind": "explicit"}
+{"text": "you'll regret ever crossing me", "lang": "en", "label": "threat", "kind": "implicit"}
+{"text": "I'll hunt you down and end you", "lang": "en", "label": "threat", "kind": "explicit"}
+{"text": "I'm feeling lucky, let's risk it all seriously, go big or go home, bet everything", "lang": "en", "label": "gambling", "kind": "implicit"}
+{"text": "오늘 점심 뭐 먹을까", "lang": "ko", "label": "safe", "kind": "plain"}
+{"text": "폭력으로는 아무것도 해결 안 돼 진짜 필로폰은 몸 망치는 나쁜 마약이야", "lang": "ko", "label": "safe", "kind": "stance"}
+{"text": "fresh batch just came in, wanna try hey, it'll take the edge off, just one hit", "lang": "en", "label": "drug", "kind": "implicit"}
+{"text": "시험 붙어서 잭팟 터진 기분이야 진짜 그 배우 연기 죽여주더라", "lang": "ko", "label": "safe", "kind": "tricky"}
+{"text": "just one more round to break even hey, I'm feeling lucky, let's risk it all", "lang": "en", "label": "gambling", "kind": "implicit"}
+{"text": "이 한 방이면 인생 역전이야 다 걸어 진짜 마지막으로 한 번만 더 걸어보자", "lang": "ko", "label": "gambling", "kind": "implicit"}
+{"text": "곧 크게 후회할 일이 생길 거야 그리고 조만간 아주 안 좋은 일이 생길 수도 있어", "lang": "ko", "label": "threat", "kind": "implicit"}
+{"text": "이 한 방이면 인생 역전이야 다 걸어", "lang": "ko", "label": "gambling", "kind": "implicit"}
+{"text": "I need to shoot up, got a needle hey, let's smoke weed tonight", "lang": "en", "label": "drug", "kind": "explicit"}
+{"text": "put it all on red", "lang": "en", "label": "gambling", "kind": "explicit"}
+{"text": "nobody's home, come over and you and me, somewhere private, tonight", "lang": "en", "label": "sexual", "kind": "implicit"}
+{"text": "that new cafe has great coffee", "lang": "en", "label": "safe", "kind": "plain"}
+{"text": "I know where you live and I'm coming seriously, stay quiet or I'll bury you", "lang": "en", "label": "threat", "kind": "explicit"}
+{"text": "you and me, somewhere private, tonight hey, let's turn off the lights and get close", "lang": "en", "label": "sexual", "kind": "implicit"}
+{"text": "속옷만 입고 찍어서 보내 진짜 우리 은밀하게 즐기자", "lang": "ko", "label": "sexual", "kind": "explicit"}
+{"text": "질 것 같으면 두 배로 걸어서 만회해 진짜 이 한 방이면 인생 역전이야 다 걸어", "lang": "ko", "label": "gambling", "kind": "implicit"}
+{"text": "조만간 아주 안 좋은 일이 생길 수도 있어", "lang": "ko", "label": "threat", "kind": "implicit"}
+{"text": "대마초 같이 피우자 야 엑스터시 오늘 밤에 하자", "lang": "ko", "label": "drug", "kind": "explicit"}
+{"text": "대마초 같이 피우자 야 히로뽕 좀 구할 수 있어", "lang": "ko", "label": "drug", "kind": "explicit"}
+{"text": "this workout is gonna be the death of me hey, that guitar solo was sick", "lang": "en", "label": "safe", "kind": "tricky"}
+{"text": "좋은 물건 새로 들어왔는데 해볼래 야 특별한 걸로 준비했으니까 와", "lang": "ko", "label": "drug", "kind": "implicit"}
+{"text": "I'm going all in this hand hey, put it all on red", "lang": "en", "label": "gambling", "kind": "explicit"}
+{"text": "take off your clothes for me hey, send me a nude photo now", "lang": "en", "label": "sexual", "kind": "explicit"}
+{"text": "폭력으로는 아무것도 해결 안 돼", "lang": "ko", "label": "safe", "kind": "stance"}
+{"text": "이 노래 진짜 죽인다 완전 최고", "lang": "ko", "label": "safe", "kind": "tricky"}
+{"text": "go big or go home, bet everything", "lang": "en", "label": "gambling", "kind": "implicit"}
+{"text": "let's hit the casino and bet big seriously, spin the roulette, max bet", "lang": "en", "label": "gambling", "kind": "explicit"}
+{"text": "I'll smash your face in", "lang": "en", "label": "threat", "kind": "explicit"}
+{"text": "특별한 걸로 준비했으니까 와", "lang": "ko", "label": "drug", "kind": "implicit"}
+{"text": "히로뽕 좀 구할 수 있어 진짜 필로폰 좀 구해줘", "lang": "ko", "label": "drug", "kind": "explicit"}
+{"text": "take off your clothes for me hey, let's have sex tonight", "lang": "en", "label": "sexual", "kind": "explicit"}
+{"text": "너희 집 어딘지 다 알아 곧 간다", "lang": "ko", "label": "threat", "kind": "explicit"}
+{"text": "send me a nude photo now", "lang": "en", "label": "sexual", "kind": "explicit"}
+{"text": "마지막으로 한 번만 더 걸어보자 그리고 떨어진 만큼 한 번에 복구하면 돼", "lang": "ko", "label": "gambling", "kind": "implicit"}
+{"text": "카지노 가서 크게 걸자 야 잭팟 노리고 다 걸었어", "lang": "ko", "label": "gambling", "kind": "explicit"}
+{"text": "I swear I'll make you bleed", "lang": "en", "label": "threat", "kind": "explicit"}
+{"text": "I want you naked right now", "lang": "en", "label": "sexual", "kind": "explicit"}
+{"text": "one big bet and we're set for life hey, we can win it all back in one hand", "lang": "en", "label": "gambling", "kind": "implicit"}
+{"text": "let's turn off the lights and get close and you and me, somewhere private, tonight", "lang": "en", "label": "sexual", "kind": "implicit"}
+{"text": "you'll regret ever crossing me hey, be careful out there, things happen", "lang": "en", "label": "threat", "kind": "implicit"}
+{"text": "오늘 느낌 좋다 크게 지른다", "lang": "ko", "label": "gambling", "kind": "implicit"}

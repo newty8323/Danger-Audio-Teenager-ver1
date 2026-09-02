@@ -1,0 +1,6 @@
+# Training objective (spec §5). Mirrors src/losses/combined.py:LossConfig.
+# L = focal-BCE(gamma) + mu * SupCon.  mu search range 0.1-0.5.
+gamma: 2.0
+mu: 0.2
+temperature: 0.1
+jaccard_threshold: 0.5
