@@ -1,5 +1,14 @@
 # 소리로 유해 콘텐츠 판별하기
 
+> **최종 결과 브랜치입니다.** 연구의 핵심 결론과 현재 구현만 정리합니다. 세부 실험 일지와 기각한 방법은 [`research-process`](https://github.com/newty8323/Danger-Audio-Teenager-ver1/tree/research-process) 브랜치에서 확인할 수 있습니다.
+
+| 자료 | 내용 |
+| --- | --- |
+| [최종 논문](docs/final/Danger-Audio-Teenager-Ver1_최종연구논문_2026-09-02.docx) | 제출용 DOCX 원고 |
+| [논문 요약](docs/final/final-paper.md) | GitHub에서 바로 읽는 최종 연구 내용 |
+| [Android 실행 안내](docs/final/android-run.md) | ONNX 기준 앱 빌드·설치 방법 |
+| [APK Release](https://github.com/newty8323/Danger-Audio-Teenager-ver1/releases/tag/v0.1.0) | 대용량 APK 다운로드 |
+
 **화면을 보지 않고, 소리만 듣고, 지금 재생 중인 콘텐츠가 청소년에게 유해한지 판단하는 연구입니다.**
 
 폰에서 실제로 돌아가야 하기 때문에 "정확한 모델 하나"를 만드는 게 아니라,
