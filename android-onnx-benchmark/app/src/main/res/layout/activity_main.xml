@@ -6,7 +6,15 @@
     <Button android:id="@+id/chooseButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="미디어 파일 선택" />
     <Button android:id="@+id/startButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="선택한 미디어 분석 시작" android:enabled="false" />
     <Button android:id="@+id/playbackButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="기기 재생음 실시간 캡처 시작" />
+
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24dp" android:text="연속 실시간성 시험" android:textStyle="bold" android:textSize="18sp" />
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="시험 종류와 시간을 선택한 뒤 시작하고, 다른 앱에서 뉴스·영화·음악을 재생합니다. 4초마다 시간·RTF·경보·메모리·배터리·온도를 저장합니다." />
+    <Spinner android:id="@+id/contentTypeSpinner" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:minHeight="48dp" />
+    <EditText android:id="@+id/contentName" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:hint="콘텐츠명·회차·시험 메모(선택)" android:inputType="text" />
+    <EditText android:id="@+id/durationMinutes" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:hint="시험 시간(분)" android:text="60" android:inputType="number" />
+    <Button android:id="@+id/benchmarkButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="연속 시험 시작" />
     <Button android:id="@+id/stopButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="중지" android:enabled="false" />
+    <Button android:id="@+id/shareButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="마지막 시험 결과 공유" android:enabled="false" />
     <TextView android:id="@+id/result" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:textIsSelectable="true" android:text="미디어 파일을 선택하면 4초 단위 분석을 시작할 수 있습니다." android:fontFamily="monospace" />
   </LinearLayout>
 </ScrollView>

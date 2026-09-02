@@ -12,7 +12,35 @@ import kotlin.concurrent.thread
 
 /** End-to-end local cascade for each new four-second microphone window. */
 class LivePipeline(context: Context) : AutoCloseable {
-    data class Result(val acoustic: Float, val text: Float, val transcript: String, val alert: Boolean, val elapsedMs: Double)
+    data class Result(
+        val acoustic: Float,
+        val text: Float,
+        val transcript: String,
+        val alert: Boolean,
+        val elapsedMs: Double,
+        val cedMs: Double,
+        val demucsMs: Double,
+        val whisperMs: Double,
+        val whisperMelMs: Double,
+        val whisperEncoderMs: Double,
+        val whisperDecoderMs: Double,
+        val koElectraMs: Double,
+        val inputSpeechSeconds: Double,
+        val tokenCount: Int,
+        val whisperWarmSession: Boolean,
+        val serverDispatched: Boolean,
+        val requestId: String?,
+    )
+
+    data class ServerMetric(
+        val requestId: String,
+        val elapsedMs: Double,
+        val success: Boolean,
+        val httpStatus: Int,
+        val error: String,
+    )
+
+    @Volatile var onServerMetric: ((ServerMetric) -> Unit)? = null
     private val ced = CedTrigger(context)
     private val demucs = LiveDemucs(context)
     private val whisper = WhisperBase(context)
@@ -20,21 +48,52 @@ class LivePipeline(context: Context) : AutoCloseable {
 
     fun process(window16k: FloatArray, serverUrl: String?): Result {
         val started = SystemClock.elapsedRealtimeNanos()
+        val cedStarted = SystemClock.elapsedRealtimeNanos()
         val acoustic = ced.score(window16k)
+        val cedMs = elapsedSince(cedStarted)
+        val demucsStarted = SystemClock.elapsedRealtimeNanos()
         val vocals = demucs.vocals(window16k)
+        val demucsMs = elapsedSince(demucsStarted)
+        val whisperStarted = SystemClock.elapsedRealtimeNanos()
         val asr = whisper.transcribe(vocals)
+        val whisperMs = elapsedSince(whisperStarted)
+        val textStarted = SystemClock.elapsedRealtimeNanos()
         val textScore = text.score(asr.text)
+        val koElectraMs = elapsedSince(textStarted)
         val alert = acoustic >= ACOUSTIC_THRESHOLD || textScore >= TEXT_THRESHOLD
-        val elapsed = (SystemClock.elapsedRealtimeNanos() - started) / 1e6
-        val result = Result(acoustic, textScore, asr.text, alert, elapsed)
-        if (alert && !serverUrl.isNullOrBlank()) sendToServer(serverUrl, window16k, result)
+        val requestId = if (alert && !serverUrl.isNullOrBlank()) {
+            "android_${System.currentTimeMillis()}"
+        } else null
+        val elapsed = elapsedSince(started)
+        val result = Result(
+            acoustic = acoustic,
+            text = textScore,
+            transcript = asr.text,
+            alert = alert,
+            elapsedMs = elapsed,
+            cedMs = cedMs,
+            demucsMs = demucsMs,
+            whisperMs = whisperMs,
+            whisperMelMs = asr.melMs,
+            whisperEncoderMs = asr.encoderMs,
+            whisperDecoderMs = asr.decoderMs,
+            koElectraMs = koElectraMs,
+            inputSpeechSeconds = asr.inputSpeechSeconds,
+            tokenCount = asr.tokenCount,
+            whisperWarmSession = asr.warmSession,
+            serverDispatched = requestId != null,
+            requestId = requestId,
+        )
+        if (requestId != null) sendToServer(serverUrl!!, window16k, result, requestId)
         return result
     }
 
-    private fun sendToServer(url: String, wave: FloatArray, result: Result) = thread(name = "qwen-escalator", isDaemon = true) {
-        runCatching {
+    private fun sendToServer(url: String, wave: FloatArray, result: Result, requestId: String) = thread(name = "qwen-escalator", isDaemon = true) {
+        val started = SystemClock.elapsedRealtimeNanos()
+        var status = -1
+        val outcome = runCatching {
             val payload = JSONObject().apply {
-                put("clip_id", "android_${System.currentTimeMillis()}")
+                put("clip_id", requestId)
                 put("event", JSONObject().apply {
                     put("start", 0); put("end", 4); put("windows", 1)
                     put("peak_acoustic", result.acoustic); put("peak_text", result.text)
@@ -48,10 +107,25 @@ class LivePipeline(context: Context) : AutoCloseable {
                 requestMethod = "POST"; connectTimeout = 10_000; readTimeout = 30_000
                 doOutput = true; setRequestProperty("Content-Type", "application/json")
             }
-            connection.outputStream.use { it.write(payload.toString().toByteArray()) }
-            connection.inputStream.close(); connection.disconnect()
+            try {
+                connection.outputStream.use { it.write(payload.toString().toByteArray()) }
+                status = connection.responseCode
+                (if (status in 200..299) connection.inputStream else connection.errorStream)?.close()
+                check(status in 200..299) { "HTTP $status" }
+            } finally {
+                connection.disconnect()
+            }
         }
+        onServerMetric?.invoke(ServerMetric(
+            requestId = requestId,
+            elapsedMs = elapsedSince(started),
+            success = outcome.isSuccess,
+            httpStatus = status,
+            error = outcome.exceptionOrNull()?.message.orEmpty(),
+        ))
     }
+
+    private fun elapsedSince(startedNanos: Long) = (SystemClock.elapsedRealtimeNanos() - startedNanos) / 1e6
 
     private fun wavBase64(wave: FloatArray): String {
         val bytes = ByteArrayOutputStream()
@@ -63,6 +137,6 @@ class LivePipeline(context: Context) : AutoCloseable {
         }
         return Base64.getEncoder().encodeToString(bytes.toByteArray())
     }
-    override fun close() { ced.close(); demucs.close(); whisper.close(); text.close() }
+    override fun close() { onServerMetric = null; ced.close(); demucs.close(); whisper.close(); text.close() }
     companion object { const val ACOUSTIC_THRESHOLD = 0.620f; const val TEXT_THRESHOLD = 0.450f }
 }
