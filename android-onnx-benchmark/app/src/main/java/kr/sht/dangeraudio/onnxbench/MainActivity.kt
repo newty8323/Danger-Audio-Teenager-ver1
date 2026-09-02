@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState); setContentView(R.layout.activity_main)
         result = findViewById(R.id.result); serverUrl = findViewById(R.id.serverUrl); choose = findViewById(R.id.chooseButton); start = findViewById(R.id.startButton); playback = findViewById(R.id.playbackButton); stop = findViewById(R.id.stopButton)
         pipeline = LivePipeline(this); choose.setOnClickListener { chooseMedia.launch(arrayOf("audio/*", "video/*")) }; start.setOnClickListener { startAnalysis() }; playback.setOnClickListener { requestPlaybackCapture() }; stop.setOnClickListener { stopAnalysis() }
+        result.text = "모델 구성: ${BuildConfig.MODEL_PROFILE}\n\nFP32 기준선과 Demucs INT8 후보 APK는 서로 다른 모델 파일로 만들어집니다."
     }
     private fun startAnalysis() {
         val uri = selected ?: return
