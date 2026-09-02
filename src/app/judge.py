@@ -90,10 +90,14 @@ class _AudioLLMJudge:
     NEED_VRAM_GB = 7.5                          # 7B in 4-bit measured at 6.3 GB, plus headroom
 
     def __init__(self, device_map: str = "auto", four_bit: bool = True,
-                 max_new_tokens: int = 160):
+                 max_new_tokens: int = 160, model_id: str | None = None):
         self.max_new_tokens = max_new_tokens
         self.four_bit = four_bit
         self.device_map = device_map
+        # A server may have the several-GB checkpoint copied locally instead of
+        # having access to Hugging Face.  Transformers accepts either form.
+        if model_id:
+            self.model_id = model_id
         self.check_vram()
         self._load()
 

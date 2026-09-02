@@ -134,6 +134,8 @@ def main(argv=None):
     p.add_argument("--log", default=str(DEFAULT_LOG))
     p.add_argument("--judge", default="stub", choices=["stub", "qwen-omni", "qwen-audio"],
                    help="stub records only; qwen-* actually listens (needs --group server)")
+    p.add_argument("--model", default=None,
+                   help="optional local Hugging Face model folder; use when the server is offline")
     p.add_argument("--no-4bit", action="store_true", help="load the judge in bf16 (>=18GB VRAM)")
     a = p.parse_args(argv)
     if a.judge != "stub":
@@ -141,7 +143,7 @@ def main(argv=None):
         global _JUDGE
         print(f"[server] loading judge '{a.judge}' (4bit={not a.no_4bit}) — "
               f"this takes a while on first run …", flush=True)
-        _JUDGE = make_judge(a.judge, four_bit=not a.no_4bit)
+        _JUDGE = make_judge(a.judge, four_bit=not a.no_4bit, model_id=a.model)
         print(f"[server] judge ready: {_JUDGE.name}", flush=True)
     handler = type("Handler", (_Handler,), {"log_path": Path(a.log)})
     print(f"[server] listening on http://{a.host}:{a.port}  (POST /  ·  GET /health)"
