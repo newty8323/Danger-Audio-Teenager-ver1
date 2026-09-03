@@ -16,6 +16,7 @@ import kotlin.math.max
 /** Android ONNX runner for the trained CED-mini acoustic harm trigger. */
 class CedTrigger(private val context: Context) : AutoCloseable {
     private val env = OrtEnvironment.getEnvironment()
+    private val sessionOptions = OrtTuning.createOptions()
     private var session: OrtSession? = null
     private val filter by lazy { floatsAsset("ced_mel_filters.f32", 64 * 257) }
 
@@ -36,7 +37,7 @@ class CedTrigger(private val context: Context) : AutoCloseable {
     private fun ensureSession(): OrtSession {
         session?.let { return it }
         val model = assetFile("ced_mini_vio.onnx")
-        return env.createSession(model.absolutePath, OrtSession.SessionOptions()).also { session = it }
+        return env.createSession(model.absolutePath, sessionOptions).also { session = it }
     }
 
     private fun assetFile(name: String): File {
@@ -56,7 +57,7 @@ class CedTrigger(private val context: Context) : AutoCloseable {
         }
     }
 
-    override fun close() { session?.close(); session = null }
+    override fun close() { session?.close(); session = null; sessionOptions.close() }
 }
 
 /** Fixed CED feature extractor: 16 kHz, 64 mel bands, FFT 512, hop 160. */

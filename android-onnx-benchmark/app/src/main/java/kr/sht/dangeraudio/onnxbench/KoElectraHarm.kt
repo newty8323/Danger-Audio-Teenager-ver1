@@ -13,6 +13,7 @@ import kotlin.math.exp
 /** Local KoELECTRA INT8 harm score with the checkpoint's WordPiece vocabulary. */
 class KoElectraHarm(private val context: Context) : AutoCloseable {
     private val env = OrtEnvironment.getEnvironment()
+    private val sessionOptions = OrtTuning.createOptions()
     private val vocab by lazy { loadVocab() }
     private val safeIndex by lazy { loadCats().indexOf("safe") }
     private var session: OrtSession? = null
@@ -66,7 +67,7 @@ class KoElectraHarm(private val context: Context) : AutoCloseable {
 
     @Synchronized private fun ensureSession(): OrtSession {
         session?.let { return it }
-        return env.createSession(assetFile("koelectra_harm.int8.onnx").absolutePath, OrtSession.SessionOptions()).also { session = it }
+        return env.createSession(assetFile("koelectra_harm.int8.onnx").absolutePath, sessionOptions).also { session = it }
     }
 
     private fun loadVocab(): Map<String, Int> {
@@ -86,6 +87,6 @@ class KoElectraHarm(private val context: Context) : AutoCloseable {
         if (!target.exists() || target.length() != length) context.assets.open(name).use { input -> target.outputStream().use(input::copyTo) }
         return target
     }
-    override fun close() { session?.close(); session = null }
+    override fun close() { session?.close(); session = null; sessionOptions.close() }
     companion object { private const val MAX_TOKENS = 128 }
 }

@@ -38,10 +38,17 @@ class WhisperBase(private val context: Context) {
         val encoderMs: Double,
         val decoderMs: Double,
         val tokenCount: Int,
+        val stopReason: String,
         val warmSession: Boolean,
     )
 
     private val env = OrtEnvironment.getEnvironment()
+    private val sessionOptions = OrtTuning.createOptions()
+    private val tokenizer by lazy { WhisperTokenizer(context) }
+    private val melFilter by lazy { floatsAsset("whisper_mel_filters.f32", 80 * 201) }
+    private val analysisWindow = FloatArray(400) { i -> (0.5 - 0.5 * cos(2.0 * PI * i / 400)).toFloat() }
+    private val encoderFile by lazy { assetFile("whisper_encoder_30s.onnx") }
+    private val decoderFile by lazy { assetFile("whisper_decoder_30s.onnx") }
     private var encoder: OrtSession? = null
     private var decoder: OrtSession? = null
     private var firstSessionPrepareMs = 0.0
@@ -50,11 +57,24 @@ class WhisperBase(private val context: Context) {
         var stage = "16 kHz 변환"
         try {
         val speech = removeSilentFrames(resampleTo16k(stereoVocals))
+        if (speech.isEmpty()) {
+            return Result(
+                text = "",
+                inputSpeechSeconds = 0.0,
+                melMs = 0.0,
+                sessionPrepareMs = 0.0,
+                encoderMs = 0.0,
+                decoderMs = 0.0,
+                tokenCount = 0,
+                stopReason = "silence",
+                warmSession = encoder != null && decoder != null,
+            )
+        }
         stage = "Whisper 모델 자산 복사"
         // Copy large assets before timing DSP so first-run file I/O is not
         // misreported as log-Mel processing time.
-        val encoderFile = assetFile("whisper_encoder_30s.onnx")
-        val decoderFile = assetFile("whisper_decoder_30s.onnx")
+        val encoderModel = encoderFile
+        val decoderModel = decoderFile
         val melStart = SystemClock.elapsedRealtimeNanos()
         stage = "Whisper log-Mel 생성"
         val features = logMelContext(speech)
@@ -62,7 +82,7 @@ class WhisperBase(private val context: Context) {
 
         stage = "Whisper ONNX 세션 준비"
         val hadSessions = encoder != null && decoder != null
-        ensureSessions(encoderFile, decoderFile)
+        ensureSessions(encoderModel, decoderModel)
         val activeEncoder = requireNotNull(encoder)
         val activeDecoder = requireNotNull(decoder)
                 stage = "Whisper encoder ONNX"
@@ -79,17 +99,18 @@ class WhisperBase(private val context: Context) {
                 val encoderMs = (SystemClock.elapsedRealtimeNanos() - encoderStart) / 1e6
                 val decoderStart = SystemClock.elapsedRealtimeNanos()
                 stage = "Whisper decoder ONNX"
-                val tokenIds = decodeGreedy(activeDecoder, hidden)
+                val decoded = decodeGreedy(activeDecoder, hidden)
                 val decoderMs = (SystemClock.elapsedRealtimeNanos() - decoderStart) / 1e6
                 stage = "Whisper 토큰 해독"
                 return Result(
-                    WhisperTokenizer(context).decode(tokenIds),
+                    tokenizer.decode(decoded.ids),
                     speech.size / 16_000.0,
                     melMs,
                     if (hadSessions) 0.0 else firstSessionPrepareMs,
                     encoderMs,
                     decoderMs,
-                    tokenIds.size - PREFIX.size,
+                    decoded.ids.size - PREFIX.size,
+                    decoded.stopReason,
                     hadSessions,
                 )
         } catch (e: Exception) {
@@ -97,7 +118,9 @@ class WhisperBase(private val context: Context) {
         }
     }
 
-    private fun decodeGreedy(decoder: OrtSession, hidden: FloatArray): IntArray {
+    private data class DecodeResult(val ids: IntArray, val stopReason: String)
+
+    private fun decodeGreedy(decoder: OrtSession, hidden: FloatArray): DecodeResult {
         val ids = PREFIX.toMutableList()
         val hiddenShape = longArrayOf(1, ENCODER_FRAMES.toLong(), 512)
         repeat(MAX_NEW_TOKENS) {
@@ -111,10 +134,31 @@ class WhisperBase(private val context: Context) {
                     }
                 }
             }
-            if (next == EOT) return ids.toIntArray()
+            if (next == EOT) return DecodeResult(ids.toIntArray(), "eot")
             ids += next
+            if (hasDegenerateSuffix(ids, PREFIX.size)) {
+                return DecodeResult(ids.toIntArray(), "repetition")
+            }
         }
-        return ids.toIntArray()
+        return DecodeResult(ids.toIntArray(), "token_limit")
+    }
+
+    /** Stop only after the generated token stream repeats the same suffix four times. */
+    private fun hasDegenerateSuffix(ids: List<Int>, generatedStart: Int): Boolean {
+        val generated = ids.size - generatedStart
+        for (unitLength in 1..minOf(MAX_REPEAT_UNIT_TOKENS, generated / REPEAT_COUNT)) {
+            val repeatedLength = unitLength * REPEAT_COUNT
+            val first = ids.size - repeatedLength
+            var same = true
+            for (offset in unitLength until repeatedLength) {
+                if (ids[first + offset] != ids[first + (offset % unitLength)]) {
+                    same = false
+                    break
+                }
+            }
+            if (same) return true
+        }
+        return false
     }
 
     private fun argmaxAllowed(logits: FloatBuffer, offset: Int): Int {
@@ -133,15 +177,15 @@ class WhisperBase(private val context: Context) {
     private fun ensureSessions(encoderFile: File, decoderFile: File) {
         if (encoder != null && decoder != null) return
         val start = SystemClock.elapsedRealtimeNanos()
-        val options = OrtSession.SessionOptions()
-        encoder = env.createSession(encoderFile.absolutePath, options)
-        decoder = env.createSession(decoderFile.absolutePath, options)
+        encoder = env.createSession(encoderFile.absolutePath, sessionOptions)
+        decoder = env.createSession(decoderFile.absolutePath, sessionOptions)
         firstSessionPrepareMs = (SystemClock.elapsedRealtimeNanos() - start) / 1e6
     }
 
     fun close() {
         encoder?.close(); encoder = null
         decoder?.close(); decoder = null
+        sessionOptions.close()
     }
 
     private fun assetFile(name: String): File {
@@ -191,18 +235,24 @@ class WhisperBase(private val context: Context) {
     private fun logMelContext(speech: FloatArray): FloatArray {
         val input = FloatArray(WINDOW_SECONDS * 16_000)
         speech.copyInto(input, endIndex = minOf(speech.size, input.size))
-        val filter = floatsAsset("whisper_mel_filters.f32", 80 * 201)
-        val result = FloatArray(80 * MEL_FRAMES)
-        val window = FloatArray(400) { i -> (0.5 - 0.5 * cos(2.0 * PI * i / 400)).toFloat() }
+        val silenceLogMel = ln(1e-10f) / ln(10.0).toFloat()
+        // Frames wholly inside zero padding have exactly the clamped silence
+        // value. Fill them directly while preserving Whisper's original 30 s
+        // tensor shape and encoder input.
+        val result = FloatArray(80 * MEL_FRAMES) { silenceLogMel }
+        val filter = melFilter
         val powers = FloatArray(201)
-        var globalMax = Float.NEGATIVE_INFINITY
-        for (frame in 0 until MEL_FRAMES) {
+        var globalMax = silenceLogMel
+        val activeFrames = if (speech.isEmpty()) 0 else {
+            ((minOf(speech.size, input.size) + 359) / 160).coerceAtMost(MEL_FRAMES)
+        }
+        for (frame in 0 until activeFrames) {
             val first = frame * 160 - 200
-            WhisperFft400.powerSpectrum(input, first, window, powers)
+            WhisperFft400.powerSpectrum(input, first, analysisWindow, powers)
             for (band in 0 until 80) {
                 var mel = 0f
                 val base = band * 201
-                for (bin in 0..200) mel += powers[bin] * filter[base + bin]
+                for (bin in 0..200) mel += powers[bin] * melFilter[base + bin]
                 val value = (ln(max(mel, 1e-10f)) / ln(10.0).toFloat())
                 result[band * MEL_FRAMES + frame] = value
                 if (value > globalMax) globalMax = value
@@ -220,11 +270,16 @@ class WhisperBase(private val context: Context) {
     }
 
     companion object {
+        const val DECODER_POLICY = "max40_repeat4_cached_padding"
         private val PREFIX = intArrayOf(50258, 50264, 50359, 50363)
         private const val EOT = 50257
         private const val TIMESTAMP_BEGIN = 50364
         private const val VOCAB_SIZE = 51865
-        private const val MAX_NEW_TOKENS = 128
+        // In the one-hour news run every pathological transcript hit the old
+        // limit of 128, while 95% of normal four-second windows used <=26.
+        private const val MAX_NEW_TOKENS = 40
+        private const val REPEAT_COUNT = 4
+        private const val MAX_REPEAT_UNIT_TOKENS = 8
         private const val WINDOW_SECONDS = 30
         private const val MEL_FRAMES = WINDOW_SECONDS * 100
         private const val ENCODER_FRAMES = MEL_FRAMES / 2

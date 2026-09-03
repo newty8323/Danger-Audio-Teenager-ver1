@@ -110,3 +110,19 @@ still be measured before accepting it.
 - 배터리 소모와 thermal 상태가 실제 상시 사용에 감당 가능한 범위다.
 
 뉴스에는 유해 발화가 적어도 실시간성과 오탐, ASR 환각을 측정하는 데 필요하다. 영화·드라마는 배경음악과 효과음 속 대사의 처리 성능을 본다. 다만 이 두 연속 시험만으로 유해 탐지 정확도나 재현율을 계산할 수는 없다. 정확도는 정답 구간을 표시한 별도의 유해·안전 평가 세트로 측정해야 한다.
+
+## 1시간 뉴스 시험 이후 속도 안정화
+
+첫 기준 시험에서는 899개 창 중 40개가 미처리로 남았고 p95 RTF가 1.169였다. 가장 큰 이상치는 Whisper가 반복 문장을 128토큰 한도까지 생성한 27개 창이었다. 해당 창은 평균 약 16.2초가 걸렸고 모두 반복 환각으로 확인됐다.
+
+`max40_repeat4_cached_padding` 정책은 모델 가중치와 30초 encoder 입력을 바꾸지 않고 다음 낭비를 제거한다.
+
+- 4초 창의 새 토큰을 최대 40개로 제한한다. 기존 정상 창의 95%는 26토큰 이하였다.
+- 같은 토큰 묶음이 네 번 연속 생성되면 반복 폭주로 판단해 decoder를 끝낸다. 생성된 표현 자체는 삭제하지 않는다.
+- 실제 음성이 끝난 뒤의 30초 0 패딩 log-Mel은 정확한 무음 값으로 채우고 계산을 생략한다.
+- Whisper vocabulary, mel filter, 모델 파일 위치와 분석 창을 재사용한다.
+- Demucs·Whisper·CED·KoELECTRA는 intra-op 4, inter-op 1의 순차 실행을 사용한다.
+- ONNX worker spinning을 꺼서 4초 창 사이 유휴 시간의 CPU 사용과 발열을 줄인다.
+- Demucs 결과가 전부 무음이면 Whisper encoder와 decoder를 실행하지 않는다.
+
+새 로그에는 `whisper_stop_reason`이 기록된다. `eot`는 정상 종료, `repetition`은 반복 조기 종료, `token_limit`은 40토큰 상한, `silence`는 무음 생략을 뜻한다. 1시간 시험 전에 같은 뉴스로 10분 시험을 실시하고 p95 RTF, `token_limit`, thermal 상태를 이전 기준과 비교한다.
