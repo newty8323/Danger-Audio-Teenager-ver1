@@ -115,7 +115,7 @@ still be measured before accepting it.
 
 첫 기준 시험에서는 899개 창 중 40개가 미처리로 남았고 p95 RTF가 1.169였다. 가장 큰 이상치는 Whisper가 반복 문장을 128토큰 한도까지 생성한 27개 창이었다. 해당 창은 평균 약 16.2초가 걸렸고 모두 반복 환각으로 확인됐다.
 
-`max40_repeat4_cached_padding_full_timeline` 정책은 모델 가중치와 30초 encoder 입력을 바꾸지 않고 다음 낭비와 전처리 왜곡을 제거한다.
+`max40_repeat4_no_speech_cached_padding_full_timeline` 정책은 모델 가중치와 30초 encoder 입력을 바꾸지 않고 다음 낭비와 전처리 왜곡을 제거한다.
 
 - 4초 창의 새 토큰을 최대 40개로 제한한다. 기존 정상 창의 95%는 26토큰 이하였다.
 - 같은 토큰 묶음이 네 번 연속 생성되면 반복 폭주로 판단해 decoder를 끝낸다. 생성된 표현 자체는 삭제하지 않는다.
@@ -125,5 +125,6 @@ still be measured before accepting it.
 - ONNX worker spinning을 꺼서 4초 창 사이 유휴 시간의 CPU 사용과 발열을 줄인다.
 - Demucs 결과가 전부 무음이면 Whisper encoder와 decoder를 실행하지 않는다.
 - Demucs 보컬의 20ms 무음 프레임은 음성 존재 여부를 계산하는 데만 사용한다. 음성이 하나라도 존재하면 쉼과 시간축을 포함한 원래 4초 파형 전체를 Whisper에 전달하며 중간 프레임을 잘라 붙이지 않는다.
+- 첫 decoder 출력의 `<|nospeech|>` 확률을 복원한다. 이 확률이 0.60보다 높고 생성 토큰의 평균 log 확률이 -1.0보다 낮을 때만 신뢰하기 어려운 무음 환각으로 판정해 빈 문장으로 처리한다. 실제 발화에도 쓰일 수 있는 `그러니까` 등의 단어 자체를 금지하지 않는다.
 
-새 로그에는 `whisper_stop_reason`이 기록된다. `eot`는 정상 종료, `repetition`은 반복 조기 종료, `token_limit`은 40토큰 상한, `silence`는 무음 생략을 뜻한다. 1시간 시험 전에 같은 뉴스로 10분 시험을 실시하고 p95 RTF, `token_limit`, thermal 상태를 이전 기준과 비교한다.
+새 로그에는 `whisper_stop_reason`, `whisper_no_speech_probability`, `whisper_average_log_probability`가 기록된다. `eot`는 정상 종료, `no_speech`는 두 임계값을 모두 통과한 무음 환각 제거, `repetition`은 반복 조기 종료, `token_limit`은 40토큰 상한, `silence`는 Demucs 출력이 무음이어서 ASR을 생략한 경우를 뜻한다. 1시간 시험 전에 같은 뉴스로 10분 시험을 실시하고 p95 RTF, `no_speech`, 실제 발화 누락, `token_limit`, thermal 상태를 이전 기준과 비교한다.
