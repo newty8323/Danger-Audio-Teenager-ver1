@@ -39,8 +39,6 @@ class WhisperBase(private val context: Context) {
         val decoderMs: Double,
         val tokenCount: Int,
         val stopReason: String,
-        val noSpeechProbability: Float,
-        val averageLogProbability: Double,
         val warmSession: Boolean,
     )
 
@@ -69,8 +67,6 @@ class WhisperBase(private val context: Context) {
                 decoderMs = 0.0,
                 tokenCount = 0,
                 stopReason = "silence",
-                noSpeechProbability = 1f,
-                averageLogProbability = 0.0,
                 warmSession = encoder != null && decoder != null,
             )
         }
@@ -106,19 +102,15 @@ class WhisperBase(private val context: Context) {
                 val decoded = decodeGreedy(activeDecoder, hidden)
                 val decoderMs = (SystemClock.elapsedRealtimeNanos() - decoderStart) / 1e6
                 stage = "Whisper 토큰 해독"
-                val noSpeech = decoded.noSpeechProbability > NO_SPEECH_THRESHOLD &&
-                    decoded.averageLogProbability < LOG_PROBABILITY_THRESHOLD
                 return Result(
-                    if (noSpeech) "" else tokenizer.decode(decoded.ids),
+                    tokenizer.decode(decoded.ids),
                     speech.activeSeconds,
                     melMs,
                     if (hadSessions) 0.0 else firstSessionPrepareMs,
                     encoderMs,
                     decoderMs,
                     decoded.ids.size - PREFIX.size,
-                    if (noSpeech) "no_speech" else decoded.stopReason,
-                    decoded.noSpeechProbability,
-                    decoded.averageLogProbability,
+                    decoded.stopReason,
                     hadSessions,
                 )
         } catch (e: Exception) {
@@ -126,49 +118,29 @@ class WhisperBase(private val context: Context) {
         }
     }
 
-    private data class DecodeResult(
-        val ids: IntArray,
-        val stopReason: String,
-        val noSpeechProbability: Float,
-        val averageLogProbability: Double,
-    )
-
-    private data class TokenChoice(val id: Int, val logProbability: Double)
+    private data class DecodeResult(val ids: IntArray, val stopReason: String)
 
     private fun decodeGreedy(decoder: OrtSession, hidden: FloatArray): DecodeResult {
         val ids = PREFIX.toMutableList()
         val hiddenShape = longArrayOf(1, ENCODER_FRAMES.toLong(), 512)
-        var noSpeechProbability = 0f
-        var logProbabilitySum = 0.0
-        var scoredTokens = 0
-        repeat(MAX_NEW_TOKENS) { step ->
+        repeat(MAX_NEW_TOKENS) {
             val prefixLength = ids.size
-            val choice = OnnxTensor.createTensor(
+            val next = OnnxTensor.createTensor(
                 env, LongBuffer.wrap(ids.map(Int::toLong).toLongArray()), longArrayOf(1, prefixLength.toLong())
             ).use { inputIds ->
                 OnnxTensor.createTensor(env, FloatBuffer.wrap(hidden), hiddenShape).use { states ->
                     decoder.run(mapOf("input_ids" to inputIds, "encoder_hidden_states" to states)).use { output ->
-                        val logits = (output[0] as OnnxTensor).floatBuffer
-                        if (step == 0) {
-                            // Whisper defines no-speech confidence at the SOT
-                            // position, before the language/task prompt tokens.
-                            noSpeechProbability = tokenProbability(logits, SOT_LOGITS_POSITION * VOCAB_SIZE, NO_SPEECH)
-                        }
-                        argmaxAllowed(logits, (prefixLength - 1) * VOCAB_SIZE)
+                        argmaxAllowed((output[0] as OnnxTensor).floatBuffer, (prefixLength - 1) * VOCAB_SIZE)
                     }
                 }
             }
-            logProbabilitySum += choice.logProbability
-            scoredTokens++
-            if (choice.id == EOT) {
-                return DecodeResult(ids.toIntArray(), "eot", noSpeechProbability, logProbabilitySum / scoredTokens)
-            }
-            ids += choice.id
+            if (next == EOT) return DecodeResult(ids.toIntArray(), "eot")
+            ids += next
             if (hasDegenerateSuffix(ids, PREFIX.size)) {
-                return DecodeResult(ids.toIntArray(), "repetition", noSpeechProbability, logProbabilitySum / scoredTokens)
+                return DecodeResult(ids.toIntArray(), "repetition")
             }
         }
-        return DecodeResult(ids.toIntArray(), "token_limit", noSpeechProbability, logProbabilitySum / scoredTokens.coerceAtLeast(1))
+        return DecodeResult(ids.toIntArray(), "token_limit")
     }
 
     /** Stop only after the generated token stream repeats the same suffix four times. */
@@ -189,7 +161,7 @@ class WhisperBase(private val context: Context) {
         return false
     }
 
-    private fun argmaxAllowed(logits: FloatBuffer, offset: Int): TokenChoice {
+    private fun argmaxAllowed(logits: FloatBuffer, offset: Int): Int {
         var bestId = EOT
         var best = Float.NEGATIVE_INFINITY
         for (id in 0 until VOCAB_SIZE) {
@@ -198,20 +170,7 @@ class WhisperBase(private val context: Context) {
             val value = logits.get(offset + id)
             if (value > best) { best = value; bestId = id }
         }
-        var total = 0.0
-        for (id in 0 until VOCAB_SIZE) {
-            if (id >= TIMESTAMP_BEGIN || (id in 50257..50363 && id != EOT)) continue
-            total += kotlin.math.exp((logits.get(offset + id) - best).toDouble())
-        }
-        return TokenChoice(bestId, -ln(total))
-    }
-
-    private fun tokenProbability(logits: FloatBuffer, offset: Int, tokenId: Int): Float {
-        var largest = Float.NEGATIVE_INFINITY
-        for (id in 0 until VOCAB_SIZE) largest = maxOf(largest, logits.get(offset + id))
-        var total = 0.0
-        for (id in 0 until VOCAB_SIZE) total += kotlin.math.exp((logits.get(offset + id) - largest).toDouble())
-        return (kotlin.math.exp((logits.get(offset + tokenId) - largest).toDouble()) / total).toFloat()
+        return bestId
     }
 
     @Synchronized
@@ -315,11 +274,9 @@ class WhisperBase(private val context: Context) {
     }
 
     companion object {
-        const val DECODER_POLICY = "max40_repeat4_no_speech_cached_padding_full_timeline"
+        const val DECODER_POLICY = "max40_repeat4_cached_padding_full_timeline"
         private val PREFIX = intArrayOf(50258, 50264, 50359, 50363)
         private const val EOT = 50257
-        private const val NO_SPEECH = 50362
-        private const val SOT_LOGITS_POSITION = 0
         private const val TIMESTAMP_BEGIN = 50364
         private const val VOCAB_SIZE = 51865
         // In the one-hour news run every pathological transcript hit the old
@@ -327,8 +284,6 @@ class WhisperBase(private val context: Context) {
         private const val MAX_NEW_TOKENS = 40
         private const val REPEAT_COUNT = 4
         private const val MAX_REPEAT_UNIT_TOKENS = 8
-        const val NO_SPEECH_THRESHOLD = 0.60f
-        const val LOG_PROBABILITY_THRESHOLD = -1.0
         private const val WINDOW_SECONDS = 30
         private const val MEL_FRAMES = WINDOW_SECONDS * 100
         private const val ENCODER_FRAMES = MEL_FRAMES / 2

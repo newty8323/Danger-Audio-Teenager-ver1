@@ -76,7 +76,6 @@ class ContinuousBenchmark(
     private var repeatedTranscripts = 0
     private var repetitionStops = 0
     private var tokenLimitStops = 0
-    private var noSpeechStops = 0
     private var silentInputs = 0
     private var errors = 0
     private var serverDispatched = 0
@@ -115,16 +114,13 @@ class ContinuousBenchmark(
             put("onnx_intra_op_threads", OrtTuning.INTRA_OP_THREADS)
             put("onnx_inter_op_threads", OrtTuning.INTER_OP_THREADS)
             put("whisper_decoder_policy", WhisperBase.DECODER_POLICY)
-            put("whisper_no_speech_threshold", WhisperBase.NO_SPEECH_THRESHOLD)
-            put("whisper_log_probability_threshold", WhisperBase.LOG_PROBABILITY_THRESHOLD)
         }.toString())
         jsonl.newLine(); jsonl.flush()
         csv.write(
             "window_index,capture_elapsed_ms,capture_interval_ms,queue_delay_ms,queue_depth,input_rms," +
                 "ced_ms,demucs_ms,whisper_ms,whisper_mel_ms,whisper_encoder_ms," +
                 "whisper_decoder_ms,koelectra_ms,total_ms,rtf,input_speech_seconds," +
-                "tokens,whisper_stop_reason,whisper_no_speech_probability,whisper_average_log_probability," +
-                "acoustic_score,text_score,alert,server_dispatched,empty_transcript," +
+                "tokens,whisper_stop_reason,acoustic_score,text_score,alert,server_dispatched,empty_transcript," +
                 "repeated_transcript,cpu_percent_one_core,cpu_percent_device,pss_kb,java_heap_kb,battery_percent," +
                 "battery_current_ua,battery_charge_counter_uah,battery_energy_counter_nwh,battery_plugged," +
                 "temperature_c,thermal_status,thermal_pressure,transcript\n"
@@ -180,7 +176,6 @@ class ContinuousBenchmark(
         if (repeated) repeatedTranscripts++
         if (result.whisperStopReason == "repetition") repetitionStops++
         if (result.whisperStopReason == "token_limit") tokenLimitStops++
-        if (result.whisperStopReason == "no_speech") noSpeechStops++
         if (inputRms < SILENT_INPUT_RMS) silentInputs++
         if (result.serverDispatched) serverDispatched++
         maxQueueDepth = maxOf(maxQueueDepth, queueDepth)
@@ -211,8 +206,6 @@ class ContinuousBenchmark(
             put("input_speech_seconds", result.inputSpeechSeconds)
             put("tokens", result.tokenCount)
             put("whisper_stop_reason", result.whisperStopReason)
-            put("whisper_no_speech_probability", result.whisperNoSpeechProbability)
-            put("whisper_average_log_probability", result.whisperAverageLogProbability)
             put("whisper_warm_session", result.whisperWarmSession)
             put("acoustic_score", result.acoustic)
             put("text_score", result.text)
@@ -241,8 +234,7 @@ class ContinuousBenchmark(
             result.cedMs, result.demucsMs, result.whisperMs, result.whisperMelMs,
             result.whisperEncoderMs, result.whisperDecoderMs, result.koElectraMs,
             result.elapsedMs, rtf, result.inputSpeechSeconds, result.tokenCount,
-            result.whisperStopReason, result.whisperNoSpeechProbability, result.whisperAverageLogProbability,
-            result.acoustic, result.text, result.alert, result.serverDispatched,
+            result.whisperStopReason, result.acoustic, result.text, result.alert, result.serverDispatched,
             empty, repeated, cpuPercent, normalizedCpuPercent, resource.pssKb, resource.javaHeapKb,
             resource.batteryPercent, resource.batteryCurrentUa, resource.chargeCounterUah,
             resource.energyCounterNwh, resource.plugged, resource.temperatureC,
@@ -317,7 +309,6 @@ class ContinuousBenchmark(
             appendLine("모델 프로필: ${BuildConfig.MODEL_PROFILE}")
             appendLine("ONNX 스레드 intra/inter: ${OrtTuning.INTRA_OP_THREADS} / ${OrtTuning.INTER_OP_THREADS}")
             appendLine("Whisper decoder 정책: ${WhisperBase.DECODER_POLICY}")
-            appendLine("Whisper 무음 판정 임계값: no-speech > ${WhisperBase.NO_SPEECH_THRESHOLD}, 평균 logP < ${WhisperBase.LOG_PROBABILITY_THRESHOLD}")
             appendLine("실행 시간: %.2f분 / 계획 %d분".format(elapsedMs / 60_000.0, config.durationMinutes))
             appendLine("수집/처리/미처리 창: $submitted / $processed / $dropped")
             appendLine("처리시간 평균/p50/p95/p99: %.1f / %.1f / %.1f / %.1f ms".format(
@@ -350,7 +341,7 @@ class ContinuousBenchmark(
             appendLine("최대 대기 깊이: $maxQueueDepth")
             appendLine("ALERT/음향/텍스트: $alerts / $acousticAlerts / $textAlerts")
             appendLine("빈 문장/반복 환각/저음량 입력: $emptyTranscripts / $repeatedTranscripts / $silentInputs")
-            appendLine("Whisper no-speech/반복 조기종료/토큰 상한 종료: $noSpeechStops / $repetitionStops / $tokenLimitStops")
+            appendLine("Whisper 반복 조기종료/토큰 상한 종료: $repetitionStops / $tokenLimitStops")
             appendLine("오류: $errors")
             val serverPending = (serverDispatched - serverCompleted - serverFailed).coerceAtLeast(0)
             appendLine("서버 전송/성공/실패/대기: $serverDispatched / $serverCompleted / $serverFailed / $serverPending")

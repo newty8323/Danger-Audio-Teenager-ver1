@@ -194,13 +194,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun formatWindow(prefix: String, index: Int, r: LivePipeline.Result, target: String?, progress: String?): String {
-        val detail = "%s %d번째 4초 구간 완료\n\nCED %.3f · KoELECTRA %.3f\n%s\n전체 %.1f ms · RTF %.3f\nCED %.1f · Demucs %.1f · Whisper %.1f · KoELECTRA %.1f ms\nWhisper 종료: %s · %d토큰\nno-speech %.3f · 평균 logP %.3f\n\n받아쓰기\n%s\n\n%s".format(
+        val detail = "%s %d번째 4초 구간 완료\n\nCED %.3f · KoELECTRA %.3f\n%s\n전체 %.1f ms · RTF %.3f\nCED %.1f · Demucs %.1f · Whisper %.1f · KoELECTRA %.1f ms\nWhisper 종료: %s · %d토큰\n\n받아쓰기\n%s\n\n%s".format(
             prefix, index, r.acoustic, r.text,
             if (r.alert) "ALERT — Qwen 전송 대상" else "SAFE",
             r.elapsedMs, r.elapsedMs / 4000.0,
             r.cedMs, r.demucsMs, r.whisperMs, r.koElectraMs,
             r.whisperStopReason, r.tokenCount,
-            r.whisperNoSpeechProbability, r.whisperAverageLogProbability,
             r.transcript.ifBlank { "(빈 문장)" },
             if (target == null) "서버 주소 없음: 기기 내부 판정만 수행" else "서버 주소 설정됨: ALERT일 때 전송",
         )

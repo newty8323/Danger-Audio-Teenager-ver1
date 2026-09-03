@@ -7,12 +7,12 @@ import ai.onnxruntime.OrtSession
  *
  * ORT's automatic pool can keep many worker threads spinning between four-second
  * windows. On the physical-phone one-hour run this used about 3.7 cores and put
- * Android in MODERATE thermal pressure after eight minutes. Four intra-op
- * threads retain useful parallelism without allowing every model to create a
- * device-wide pool; disabling spinning lets those workers sleep between runs.
+ * Android in MODERATE thermal pressure after eight minutes. Two intra-op
+ * threads deliberately trade some latency headroom for lower sustained CPU
+ * load and heat; disabling spinning lets those workers sleep between runs.
  */
 object OrtTuning {
-    const val INTRA_OP_THREADS = 4
+    const val INTRA_OP_THREADS = 2
     const val INTER_OP_THREADS = 1
 
     fun createOptions(): OrtSession.SessionOptions = OrtSession.SessionOptions().apply {
