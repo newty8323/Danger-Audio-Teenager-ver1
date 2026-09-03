@@ -56,8 +56,8 @@ class WhisperBase(private val context: Context) {
     fun transcribe(stereoVocals: FloatArray): Result {
         var stage = "16 kHz 변환"
         try {
-        val speech = removeSilentFrames(resampleTo16k(stereoVocals))
-        if (speech.isEmpty()) {
+        val speech = prepareSpeechInput(resampleTo16k(stereoVocals))
+        if (speech == null) {
             return Result(
                 text = "",
                 inputSpeechSeconds = 0.0,
@@ -77,7 +77,7 @@ class WhisperBase(private val context: Context) {
         val decoderModel = decoderFile
         val melStart = SystemClock.elapsedRealtimeNanos()
         stage = "Whisper log-Mel 생성"
-        val features = logMelContext(speech)
+        val features = logMelContext(speech.samples)
         val melMs = (SystemClock.elapsedRealtimeNanos() - melStart) / 1e6
 
         stage = "Whisper ONNX 세션 준비"
@@ -104,7 +104,7 @@ class WhisperBase(private val context: Context) {
                 stage = "Whisper 토큰 해독"
                 return Result(
                     tokenizer.decode(decoded.ids),
-                    speech.size / 16_000.0,
+                    speech.activeSeconds,
                     melMs,
                     if (hadSessions) 0.0 else firstSessionPrepareMs,
                     encoderMs,
@@ -214,22 +214,26 @@ class WhisperBase(private val context: Context) {
         return result
     }
 
-    /** Remove only near-silent 20 ms frames after Demucs; retain all audible vocal frames. */
-    private fun removeSilentFrames(samples: FloatArray): FloatArray {
+    private data class SpeechInput(val samples: FloatArray, val activeSeconds: Double)
+
+    /**
+     * Detect whether the Demucs stem contains speech-like energy without
+     * changing its timeline. The previous implementation concatenated only
+     * non-silent 20 ms frames. That removed natural pauses and parts of words,
+     * creating an unnatural waveform which encouraged Whisper hallucinations.
+     */
+    private fun prepareSpeechInput(samples: FloatArray): SpeechInput? {
         val frame = 320
-        val kept = ArrayList<FloatArray>()
+        var activeSamples = 0
         for (start in samples.indices step frame) {
             val end = minOf(start + frame, samples.size)
             var energy = 0.0
             for (i in start until end) energy += samples[i] * samples[i]
             val rms = sqrt(energy / (end - start))
-            if (rms >= SILENCE_RMS) kept += samples.copyOfRange(start, end)
+            if (rms >= SILENCE_RMS) activeSamples += end - start
         }
-        if (kept.isEmpty()) return FloatArray(0)
-        val result = FloatArray(kept.sumOf { it.size })
-        var cursor = 0
-        for (part in kept) { part.copyInto(result, cursor); cursor += part.size }
-        return result
+        if (activeSamples == 0) return null
+        return SpeechInput(samples, activeSamples / 16_000.0)
     }
 
     private fun logMelContext(speech: FloatArray): FloatArray {
@@ -270,7 +274,7 @@ class WhisperBase(private val context: Context) {
     }
 
     companion object {
-        const val DECODER_POLICY = "max40_repeat4_cached_padding"
+        const val DECODER_POLICY = "max40_repeat4_cached_padding_full_timeline"
         private val PREFIX = intArrayOf(50258, 50264, 50359, 50363)
         private const val EOT = 50257
         private const val TIMESTAMP_BEGIN = 50364
